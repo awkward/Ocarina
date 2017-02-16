@@ -7,19 +7,100 @@
 //
 
 import UIKit
+import Ocarina
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
         // Override point for customization after application launch.
-        let splitViewController = self.window!.rootViewController as! UISplitViewController
-        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
-        splitViewController.delegate = self
+        
+        _ = URL(string: "https://www.youtube.com/watch?v=Jfg6RfClZJg")?.oca.fetchInformation { (information, error) in
+            if let information = information {
+                print("Information received \(information) for url \(information.originalUrl) type \(information.type.rawValue)")
+            } else if let error = error {
+                print("Error \(error.localizedDescription)")
+            }
+        }
+
+        _ = URL(string: "http://simlicious.nl/2017/01/24/de-sims-4-vampieren-nu-verkrijgbaar/")?.oca.fetchInformation { (information, error) in
+            if let information = information {
+                print("Information received \(information) for url \(information.originalUrl) type \(information.type.rawValue)")
+            } else if let error = error {
+                print("Error \(error.localizedDescription)")
+            }
+        }
+        
+        _ = URL(string: "http://www.deezer.com/playlist/68020160")?.oca.fetchInformation { (information, error) in
+            if let information = information {
+                print("Information received \(information) for url \(information.originalUrl) type \(information.type.rawValue)")
+            } else if let error = error {
+                print("Error \(error.localizedDescription)")
+            }
+        }
+        
+        _ = URL(string: "http://www.deezer.com/playlist/68020160")?.oca.fetchInformation { (information, error) in
+            if let information = information {
+                print("Information received \(information) for url \(information.originalUrl) type \(information.type.rawValue)")
+            } else if let error = error {
+                print("Error \(error.localizedDescription)")
+            }
+        }
+        
+        _ = URL(string: "http://reddit.com/r/zelda")?.oca.fetchInformation { (information, error) in
+            if let information = information {
+                print("Information received \(information) for url \(information.originalUrl) type \(information.type.rawValue)")
+            } else if let error = error {
+                print("Error \(error.localizedDescription)")
+            }
+        }
+        
+        _ = URL(string: "https://www.nytimes.com/2017/02/16/sports/bighorn-sheep-hunting.html?hp&action=click&pgtype=Homepage&clickSource=story-heading&module=photo-spot-region&region=top-news&WT.nav=top-news&_r=0")?.oca.fetchInformation { (information, error) in
+            if let information = information {
+                print("Information received \(information) for url \(information.originalUrl) type \(information.type.rawValue)")
+            } else if let error = error {
+                print("Error \(error.localizedDescription)")
+            }
+        }
+        
+        _ = URL(string: "http://renssies.nl")?.oca.fetchInformation { (information, error) in
+            if let information = information {
+                print("Information received \(information) for url \(information.originalUrl) type \(information.type.rawValue)")
+            } else if let error = error {
+                print("Error \(error.localizedDescription)")
+            }
+        }
+        
+        _ = URL(string: "http://awkward.co")?.oca.fetchInformation { (information, error) in
+            if let information = information {
+                print("Information received \(information) for url \(information.originalUrl) type \(information.type.rawValue)")
+            } else if let error = error {
+                print("Error \(error.localizedDescription)")
+            }
+        }
+        
+        _ = URL(string: "http://i.imgur.com/XJHt6Wk.jpg")?.oca.fetchInformation { (information, error) in
+            if let information = information {
+                print("Information received \(information) for url \(information.originalUrl) type \(information.type.rawValue)")
+            } else if let error = error {
+                print("Error \(error.localizedDescription)")
+            }
+        }
+        
+        _ = URL(string: "https://www.nintendo.com/consumer/downloads/WiiOpMn_setup.pdf")?.oca.fetchInformation { (information, error) in
+            if let information = information {
+                print("Information received \(information) for url \(information.originalUrl) type \(information.type.rawValue)")
+            } else if let error = error {
+                print("Error \(error.localizedDescription)")
+            }
+        }
+        
+        self.window?.rootViewController = UIViewController()
+        
         return true
     }
 
@@ -43,18 +124,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-    // MARK: - Split view
-
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
-        guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
-        guard let topAsDetailController = secondaryAsNavController.topViewController as? DetailViewController else { return false }
-        if topAsDetailController.detailItem == nil {
-            // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
-            return true
-        }
-        return false
     }
 
 }

@@ -7,3 +7,5 @@
 //
 
 import Foundation
+
+public typealias InformationCompletionHandler = ((_ information: URLInformation?, _ error: Error?) -> ())

@@ -13,6 +13,9 @@
 		0C1AEEDF1E54A0A3001A6234 /* URLInformationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AEEDE1E54A0A3001A6234 /* URLInformationRequest.swift */; };
 		0C1AEEE11E54A0AD001A6234 /* URLInformationCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AEEE01E54A0AD001A6234 /* URLInformationCache.swift */; };
 		0C1AEEE31E54A0B6001A6234 /* URL+URLInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AEEE21E54A0B6001A6234 /* URL+URLInformation.swift */; };
+		0C1AEEEF1E54B251001A6234 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1AEEEC1E54B243001A6234 /* Kanna.framework */; };
+		0C1AEEF41E54B359001A6234 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1AEEF31E54B359001A6234 /* libxml2.tbd */; };
+		0C1AEEF81E55E61E001A6234 /* OcarinaTypesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AEEF71E55E61E001A6234 /* OcarinaTypesTests.swift */; };
 		0C879DA41E535182004606F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C879DA31E535182004606F2 /* AppDelegate.swift */; };
 		0C879DAB1E535182004606F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C879DA91E535182004606F2 /* Main.storyboard */; };
 		0C879DAD1E535182004606F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C879DAC1E535182004606F2 /* Assets.xcassets */; };
@@ -25,6 +28,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0C1AEEEB1E54B243001A6234 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0C1AEEE61E54B243001A6234 /* Kanna.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1E7ADC331DF4F3FC006E1815;
+			remoteInfo = Kanna;
+		};
+		0C1AEEED1E54B243001A6234 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0C1AEEE61E54B243001A6234 /* Kanna.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1E7ADC3C1DF4F3FC006E1815;
+			remoteInfo = Tests;
+		};
+		0C1AEEF01E54B260001A6234 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0C1AEEE61E54B243001A6234 /* Kanna.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 1E7ADC321DF4F3FC006E1815;
+			remoteInfo = Kanna;
+		};
 		0C879DD41E5351F4004606F2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0C879D981E535182004606F2 /* Project object */;
@@ -69,6 +93,9 @@
 		0C1AEEDE1E54A0A3001A6234 /* URLInformationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLInformationRequest.swift; sourceTree = "<group>"; };
 		0C1AEEE01E54A0AD001A6234 /* URLInformationCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLInformationCache.swift; sourceTree = "<group>"; };
 		0C1AEEE21E54A0B6001A6234 /* URL+URLInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+URLInformation.swift"; sourceTree = "<group>"; };
+		0C1AEEE61E54B243001A6234 /* Kanna.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Kanna.xcodeproj; path = "Kanna HTML Parser/Kanna.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		0C1AEEF31E54B359001A6234 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		0C1AEEF71E55E61E001A6234 /* OcarinaTypesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OcarinaTypesTests.swift; sourceTree = "<group>"; };
 		0C879DA01E535182004606F2 /* Ocarina Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ocarina Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C879DA31E535182004606F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C879DAA1E535182004606F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -96,6 +123,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C1AEEF41E54B359001A6234 /* libxml2.tbd in Frameworks */,
+				0C1AEEEF1E54B251001A6234 /* Kanna.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +139,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C1AEEE41E54B237001A6234 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C1AEEE51E54B23C001A6234 /* External */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0C1AEEE51E54B23C001A6234 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				0C1AEEE61E54B243001A6234 /* Kanna.xcodeproj */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		0C1AEEE71E54B243001A6234 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0C1AEEEC1E54B243001A6234 /* Kanna.framework */,
+				0C1AEEEE1E54B243001A6234 /* Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0C1AEEF21E54B359001A6234 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C1AEEF31E54B359001A6234 /* libxml2.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0C879D971E535182004606F2 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +179,7 @@
 				0C879DCB1E5351F4004606F2 /* Ocarina */,
 				0C879DD81E5351F4004606F2 /* OcarinaTests */,
 				0C879DA11E535182004606F2 /* Products */,
+				0C1AEEF21E54B359001A6234 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -145,6 +208,7 @@
 		0C879DCB1E5351F4004606F2 /* Ocarina */ = {
 			isa = PBXGroup;
 			children = (
+				0C1AEEE41E54B237001A6234 /* Frameworks */,
 				0C879DCC1E5351F4004606F2 /* Ocarina.h */,
 				0C879DCD1E5351F4004606F2 /* Info.plist */,
 				0C1AEED81E54A086001A6234 /* Ocarina.swift */,
@@ -162,6 +226,7 @@
 			children = (
 				0C879DD91E5351F4004606F2 /* OcarinaTests.swift */,
 				0C879DDB1E5351F4004606F2 /* Info.plist */,
+				0C1AEEF71E55E61E001A6234 /* OcarinaTypesTests.swift */,
 			);
 			path = OcarinaTests;
 			sourceTree = "<group>";
@@ -211,6 +276,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				0C1AEEF11E54B260001A6234 /* PBXTargetDependency */,
 			);
 			name = Ocarina;
 			productName = Ocarina;
@@ -273,6 +339,12 @@
 			mainGroup = 0C879D971E535182004606F2;
 			productRefGroup = 0C879DA11E535182004606F2 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0C1AEEE71E54B243001A6234 /* Products */;
+					ProjectRef = 0C1AEEE61E54B243001A6234 /* Kanna.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				0C879D9F1E535182004606F2 /* Ocarina Example */,
@@ -281,6 +353,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		0C1AEEEC1E54B243001A6234 /* Kanna.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Kanna.framework;
+			remoteRef = 0C1AEEEB1E54B243001A6234 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0C1AEEEE1E54B243001A6234 /* Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tests.xctest;
+			remoteRef = 0C1AEEED1E54B243001A6234 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0C879D9E1E535182004606F2 /* Resources */ = {
@@ -336,12 +425,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C879DDA1E5351F4004606F2 /* OcarinaTests.swift in Sources */,
+				0C1AEEF81E55E61E001A6234 /* OcarinaTypesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0C1AEEF11E54B260001A6234 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Kanna;
+			targetProxy = 0C1AEEF01E54B260001A6234 /* PBXContainerItemProxy */;
+		};
 		0C879DD51E5351F4004606F2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0C879DC91E5351F4004606F2 /* Ocarina */;
@@ -475,8 +570,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "Ocarina Example/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = "co.awkward.Ocarina-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -488,8 +586,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "Ocarina Example/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = "co.awkward.Ocarina-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -499,6 +600,7 @@
 		0C879DE21E5351F4004606F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -506,9 +608,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = Ocarina/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = co.awkward.Ocarina;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -523,6 +628,7 @@
 		0C879DE31E5351F4004606F2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -530,9 +636,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = Ocarina/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = co.awkward.Ocarina;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -547,8 +656,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = OcarinaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = co.awkward.OcarinaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -560,8 +671,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = OcarinaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = co.awkward.OcarinaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;

@@ -21,7 +21,10 @@ class OcarinaTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testDataDownload() {
+        _ = URL(string: "http://reddit.com/r/zelda")?.oca.fetchInformation { (information, error) in
+            
+        }
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
