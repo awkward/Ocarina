@@ -136,27 +136,30 @@ public class URLInformation: NSCoding, Equatable {
     public let originalUrl: URL
     
     /// The contents of the og:url tag of the link.
-    /// If the Open Graph URL is not present, this will match the original or have the redirect URL if a redirect occured
+    /// If the Open Graph URL is not present, this will match the original or have the redirect URL if a redirect occured.
     public let url: URL
     
     /// The contents of the og:title tag of the link.
-    /// If og:title is not present, there is a fallback to the `<title>` html tag
-    public let title: String?
+    /// If og:title is not present, there is a fallback to the `<title>` html tag.
+    public var title: String?
     
     /// The contents of the og:title tag of the link.
-    /// If og:title is not present, there is a fallback to the `<meta type="description">` html tag
-    public let descriptionText: String?
+    /// If og:title is not present, there is a fallback to the `<meta type="description">` html tag.
+    public var descriptionText: String?
+    
+    /// An URL to an image that was provided as the og:image tag.
+    /// If og:image is not present, it will fallback to the "apple touch icon" if present.
+    public var imageUrl: URL?
     
     /// The type of the content behind the URL, this is determented (in order) by the `og:type` tag or mimetype
-    public let type: URLInformationType
-    
+    public var type: URLInformationType
     
     /// Create a new instance of URLInformation with the given URL and title
     ///
     /// - Parameters:
     ///   - url: The URL which the information corrisponds to
     ///   - title: The title of the page or article
-    init (originalUrl: URL, url: URL, title: String?) {
+    init(originalUrl: URL, url: URL, title: String?) {
         self.originalUrl = originalUrl
         self.url = url
         self.title = title
@@ -189,6 +192,22 @@ public class URLInformation: NSCoding, Equatable {
                 self.descriptionText = descriptionText
             } else {
                 self.descriptionText = nil
+            }
+            
+            if let imageUrlString = html.xpath("/html/head/meta[(@property|@name)=\"og:image\"]/@content").first?.text {
+                if let imageUrl = URL(string: imageUrlString), url.host != nil && url.scheme != nil {
+                    self.imageUrl = imageUrl
+                } else {
+                    self.imageUrl = URL(string: imageUrlString, relativeTo: url)
+                }
+            } else if let imageUrlString = html.xpath("/html/head/link[@rel=\"apple-touch-icon\"]/@content").first?.text {
+                if let imageUrl = URL(string: imageUrlString), url.host != nil && url.scheme != nil {
+                    self.imageUrl = imageUrl
+                } else {
+                    self.imageUrl = URL(string: imageUrlString, relativeTo: url)
+                }
+            } else {
+                self.imageUrl = nil
             }
             
         } else {

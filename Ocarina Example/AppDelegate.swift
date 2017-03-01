@@ -19,6 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Override point for customization after application launch.
         
+        let urls: [URL] = [URL(string: "http://renssies.nl")!,
+                           URL(string: "http://nytimes.com")!,
+                           URL(string: "http://bbc.com")!,
+                           URL(string: "http://apple.com")!,
+                           URL(string: "http://awkward.co")!,
+                           URL(string: "http://spotify.com")!
+        ]
+        _ = OcarinaPrefetcher(urls: urls, manager: OcarinaManager.shared) { (errors) in
+            print("Prefetched all urls with errors \(errors)")
+        }
+        
         _ = URL(string: "https://www.youtube.com/watch?v=Jfg6RfClZJg")?.oca.fetchInformation { (information, error) in
             if let information = information {
                 print("Information received \(information) for url \(information.originalUrl) type \(information.type.rawValue)")
@@ -98,8 +109,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Error \(error.localizedDescription)")
             }
         }
-        
-        self.window?.rootViewController = UIViewController()
         
         return true
     }

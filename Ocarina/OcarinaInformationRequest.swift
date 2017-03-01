@@ -1,5 +1,5 @@
 //
-//  URLInformationRequest.swift
+//  OcarinaInformationRequest.swift
 //  Ocarina
 //
 //  Created by Rens Verhoeven on 15/02/2017.
@@ -9,7 +9,7 @@
 import Foundation
 
 /// A request for information of a certain URL
-public class URLInformationRequest: Equatable {
+public class OcarinaInformationRequest: Equatable {
     
     /// The URL this request is requesting information for
     public var url: URL
@@ -19,6 +19,9 @@ public class URLInformationRequest: Equatable {
     
     /// The completion handler, called when the request is cancelled or finished
     let completionHandler: InformationCompletionHandler
+    
+    /// If the request has been completed, either with or without an error
+    internal var hasBeenCompleted: Bool = false
     
     //TODO: Return optional, use URL from task
     init(url: URL, task: URLSessionTask, completionHandler: @escaping InformationCompletionHandler) {
@@ -34,7 +37,7 @@ public class URLInformationRequest: Equatable {
     }
     
     
-    public static func ==(lhs: URLInformationRequest, rhs: URLInformationRequest) -> Bool {
+    public static func ==(lhs: OcarinaInformationRequest, rhs: OcarinaInformationRequest) -> Bool {
         return lhs.url == rhs.url
     }
 }

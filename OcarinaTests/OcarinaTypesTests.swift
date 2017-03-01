@@ -8,8 +8,21 @@
 
 import XCTest
 @testable import Ocarina
+import Kanna
 
 class OcarinaTypesTests: XCTestCase {
+    
+    override func setUp() {
+        super.setUp()
+        
+        OcarinaManager.shared.delegate = self
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+        
+        OcarinaManager.shared.delegate = nil
+    }
     
 //    public enum URLInformationType: String {
 //        
@@ -78,6 +91,27 @@ class OcarinaTypesTests: XCTestCase {
             }
         }
         
+    }
+    
+}
+
+extension OcarinaTypesTests: OcarinaManagerDelegate {
+    
+    func ocarinaManager(manager: OcarinaManager, doAdditionalParsingForInformation information: URLInformation, HTML: HTMLDocument?) -> URLInformation? {
+        let newInformation = information
+        
+        // Spotify redirects to a browser-not-supported url. So we use the original URL
+        if information.originalUrl.host == "play.spotify.com" {
+            newInformation.title = "Spotify"
+            if information.originalUrl.pathComponents.contains("track") {
+                newInformation.type = .musicSong
+            } else if information.originalUrl.pathComponents.contains("album") {
+                newInformation.type = .musicAlbum
+            } else if information.originalUrl.pathComponents.contains("playlist") {
+                newInformation.type = .musicPlaylist
+            }
+        }
+        return newInformation
     }
     
 }

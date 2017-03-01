@@ -14,7 +14,7 @@ public class URLInformationCache {
     /// The internal NSCache used to cache the URLInformation
     let cache = NSCache<NSURL, URLInformation>()
     
-    subscript(url: URL) -> URLInformation? {
+    public subscript(url: URL) -> URLInformation? {
         get {
             return self.cache.object(forKey: url as NSURL)
         }
@@ -29,7 +29,7 @@ public class URLInformationCache {
     
     
     /// Clears all the URLInformation models from the cache
-    func clear() {
+    public func clear() {
         self.cache.removeAllObjects()
     }
     

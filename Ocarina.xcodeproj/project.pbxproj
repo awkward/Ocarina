@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C11180E1E64750100CDFBDF /* OptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C11180D1E64750100CDFBDF /* OptionsTableViewController.swift */; };
+		0C1118111E64750F00CDFBDF /* RealLinksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1118101E64750F00CDFBDF /* RealLinksTableViewController.swift */; };
+		0C1118131E64791E00CDFBDF /* LinkPreviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1118121E64791E00CDFBDF /* LinkPreviewTableViewCell.swift */; };
+		0C1118211E64795500CDFBDF /* LinkPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1118201E64795500CDFBDF /* LinkPreviewView.swift */; };
 		0C1AEED91E54A086001A6234 /* Ocarina.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AEED81E54A086001A6234 /* Ocarina.swift */; };
 		0C1AEEDB1E54A090001A6234 /* OcarinaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AEEDA1E54A090001A6234 /* OcarinaManager.swift */; };
 		0C1AEEDD1E54A09A001A6234 /* URLInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AEEDC1E54A09A001A6234 /* URLInformation.swift */; };
-		0C1AEEDF1E54A0A3001A6234 /* URLInformationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AEEDE1E54A0A3001A6234 /* URLInformationRequest.swift */; };
+		0C1AEEDF1E54A0A3001A6234 /* OcarinaInformationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AEEDE1E54A0A3001A6234 /* OcarinaInformationRequest.swift */; };
 		0C1AEEE11E54A0AD001A6234 /* URLInformationCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AEEE01E54A0AD001A6234 /* URLInformationCache.swift */; };
 		0C1AEEE31E54A0B6001A6234 /* URL+URLInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AEEE21E54A0B6001A6234 /* URL+URLInformation.swift */; };
 		0C1AEEEF1E54B251001A6234 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1AEEEC1E54B243001A6234 /* Kanna.framework */; };
@@ -25,6 +29,8 @@
 		0C879DDC1E5351F4004606F2 /* Ocarina.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C879DCC1E5351F4004606F2 /* Ocarina.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C879DDF1E5351F4004606F2 /* Ocarina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C879DCA1E5351F4004606F2 /* Ocarina.framework */; };
 		0C879DE01E5351F4004606F2 /* Ocarina.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0C879DCA1E5351F4004606F2 /* Ocarina.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0CF4451E1E63006A00E284FB /* OcarinaManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF4451D1E63006A00E284FB /* OcarinaManagerDelegate.swift */; };
+		0CF445201E6300F400E284FB /* OcarinaPrefetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF4451F1E6300F400E284FB /* OcarinaPrefetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,10 +93,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0C11180D1E64750100CDFBDF /* OptionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsTableViewController.swift; sourceTree = "<group>"; };
+		0C1118101E64750F00CDFBDF /* RealLinksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealLinksTableViewController.swift; sourceTree = "<group>"; };
+		0C1118121E64791E00CDFBDF /* LinkPreviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkPreviewTableViewCell.swift; sourceTree = "<group>"; };
+		0C1118201E64795500CDFBDF /* LinkPreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkPreviewView.swift; sourceTree = "<group>"; };
 		0C1AEED81E54A086001A6234 /* Ocarina.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ocarina.swift; sourceTree = "<group>"; };
 		0C1AEEDA1E54A090001A6234 /* OcarinaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OcarinaManager.swift; sourceTree = "<group>"; };
 		0C1AEEDC1E54A09A001A6234 /* URLInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLInformation.swift; sourceTree = "<group>"; };
-		0C1AEEDE1E54A0A3001A6234 /* URLInformationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLInformationRequest.swift; sourceTree = "<group>"; };
+		0C1AEEDE1E54A0A3001A6234 /* OcarinaInformationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OcarinaInformationRequest.swift; sourceTree = "<group>"; };
 		0C1AEEE01E54A0AD001A6234 /* URLInformationCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLInformationCache.swift; sourceTree = "<group>"; };
 		0C1AEEE21E54A0B6001A6234 /* URL+URLInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+URLInformation.swift"; sourceTree = "<group>"; };
 		0C1AEEE61E54B243001A6234 /* Kanna.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Kanna.xcodeproj; path = "Kanna HTML Parser/Kanna.xcodeproj"; sourceTree = SOURCE_ROOT; };
@@ -108,6 +118,8 @@
 		0C879DD21E5351F4004606F2 /* OcarinaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OcarinaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C879DD91E5351F4004606F2 /* OcarinaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OcarinaTests.swift; sourceTree = "<group>"; };
 		0C879DDB1E5351F4004606F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0CF4451D1E63006A00E284FB /* OcarinaManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OcarinaManagerDelegate.swift; sourceTree = "<group>"; };
+		0CF4451F1E6300F400E284FB /* OcarinaPrefetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OcarinaPrefetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +213,10 @@
 				0C879DAC1E535182004606F2 /* Assets.xcassets */,
 				0C879DAE1E535182004606F2 /* LaunchScreen.storyboard */,
 				0C879DB11E535182004606F2 /* Info.plist */,
+				0C11180D1E64750100CDFBDF /* OptionsTableViewController.swift */,
+				0C1118101E64750F00CDFBDF /* RealLinksTableViewController.swift */,
+				0C1118121E64791E00CDFBDF /* LinkPreviewTableViewCell.swift */,
+				0C1118201E64795500CDFBDF /* LinkPreviewView.swift */,
 			);
 			path = "Ocarina Example";
 			sourceTree = "<group>";
@@ -212,9 +228,11 @@
 				0C879DCC1E5351F4004606F2 /* Ocarina.h */,
 				0C879DCD1E5351F4004606F2 /* Info.plist */,
 				0C1AEED81E54A086001A6234 /* Ocarina.swift */,
+				0CF4451D1E63006A00E284FB /* OcarinaManagerDelegate.swift */,
 				0C1AEEDA1E54A090001A6234 /* OcarinaManager.swift */,
 				0C1AEEDC1E54A09A001A6234 /* URLInformation.swift */,
-				0C1AEEDE1E54A0A3001A6234 /* URLInformationRequest.swift */,
+				0C1AEEDE1E54A0A3001A6234 /* OcarinaInformationRequest.swift */,
+				0CF4451F1E6300F400E284FB /* OcarinaPrefetcher.swift */,
 				0C1AEEE01E54A0AD001A6234 /* URLInformationCache.swift */,
 				0C1AEEE21E54A0B6001A6234 /* URL+URLInformation.swift */,
 			);
@@ -403,6 +421,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C1118131E64791E00CDFBDF /* LinkPreviewTableViewCell.swift in Sources */,
+				0C11180E1E64750100CDFBDF /* OptionsTableViewController.swift in Sources */,
+				0C1118211E64795500CDFBDF /* LinkPreviewView.swift in Sources */,
+				0C1118111E64750F00CDFBDF /* RealLinksTableViewController.swift in Sources */,
 				0C879DA41E535182004606F2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,12 +433,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C1AEEDF1E54A0A3001A6234 /* URLInformationRequest.swift in Sources */,
+				0C1AEEDF1E54A0A3001A6234 /* OcarinaInformationRequest.swift in Sources */,
 				0C1AEEE11E54A0AD001A6234 /* URLInformationCache.swift in Sources */,
+				0CF4451E1E63006A00E284FB /* OcarinaManagerDelegate.swift in Sources */,
 				0C1AEEE31E54A0B6001A6234 /* URL+URLInformation.swift in Sources */,
 				0C1AEED91E54A086001A6234 /* Ocarina.swift in Sources */,
 				0C1AEEDD1E54A09A001A6234 /* URLInformation.swift in Sources */,
 				0C1AEEDB1E54A090001A6234 /* OcarinaManager.swift in Sources */,
+				0CF445201E6300F400E284FB /* OcarinaPrefetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
