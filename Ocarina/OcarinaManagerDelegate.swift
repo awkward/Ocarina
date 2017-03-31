@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kanna
 
 public protocol OcarinaManagerDelegate: class {
     

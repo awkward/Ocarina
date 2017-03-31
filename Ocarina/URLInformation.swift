@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Kanna
 import AVFoundation
 
 public enum URLInformationType: String {

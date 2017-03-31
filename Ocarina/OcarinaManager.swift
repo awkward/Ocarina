@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Kanna
 
 //TODO: Improve delegate
 //TODO: Allow providing a custom URL request using delegate
