@@ -156,16 +156,10 @@ public class URLInformation: NSCoding, Equatable {
     /// Create a new instance of URLInformation with the given URL and title
     ///
     /// - Parameters:
-    ///   - url: The URL which the information corrisponds to
-    ///   - title: The title of the page or article
-    init(originalUrl: URL, url: URL, title: String?) {
-        self.originalUrl = originalUrl
-        self.url = url
-        self.title = title
-        self.descriptionText = nil
-        self.type = .website
-    }
-    
+    ///   - originalUrl: The original URL the request was created with
+    ///   - url: The URL which the information corrisponds to. This might be an redirected url.
+    ///   - html: The html of the page, this is used to search for (head) tags.
+    ///   - response: The HTTP response for the page, this includes the status code.
     init?(originalUrl: URL, url: URL, html: HTMLDocument?, response: HTTPURLResponse?) {
         self.originalUrl = originalUrl
         self.url = url

@@ -205,6 +205,10 @@ extension OcarinaManager: URLSessionDataDelegate {
             self.completeRequestsWithError(newError, for: originalUrl)
             return
         }
+        if let error = error, data == nil {
+            self.completeRequestsWithError(error, for: originalUrl)
+            return
+        }
         
         var html: HTMLDocument? = nil
         if let data = data {

@@ -37,7 +37,7 @@ open class OcarinaPrefetcher: NSObject {
             self.errors.append(error)
         }
         let incompleteRequests = self.requests.filter({ (request) -> Bool in
-            return request.hasBeenCompleted
+            return !request.hasBeenCompleted
         })
         if incompleteRequests.count <= 0 {
             self.completionHandler?(self.errors)

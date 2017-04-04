@@ -18,8 +18,7 @@
 		0C1AEEE11E54A0AD001A6234 /* URLInformationCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AEEE01E54A0AD001A6234 /* URLInformationCache.swift */; };
 		0C1AEEE31E54A0B6001A6234 /* URL+URLInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AEEE21E54A0B6001A6234 /* URL+URLInformation.swift */; };
 		0C1AEEF41E54B359001A6234 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1AEEF31E54B359001A6234 /* libxml2.tbd */; };
-		0C1AEEF81E55E61E001A6234 /* OcarinaTypesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AEEF71E55E61E001A6234 /* OcarinaTypesTests.swift */; };
-		0C38D4DD1E8E53BE003E02E1 /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C38D4D81E8E53BE003E02E1 /* CSS.swift */; };
+		0C1AEEF81E55E61E001A6234 /* AdditionalParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AEEF71E55E61E001A6234 /* AdditionalParsingTests.swift */; };
 		0C38D4DE1E8E53BE003E02E1 /* Kanna.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C38D4D91E8E53BE003E02E1 /* Kanna.swift */; };
 		0C38D4DF1E8E53BE003E02E1 /* libxmlHTMLDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C38D4DA1E8E53BE003E02E1 /* libxmlHTMLDocument.swift */; };
 		0C38D4E01E8E53BE003E02E1 /* libxmlHTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C38D4DB1E8E53BE003E02E1 /* libxmlHTMLNode.swift */; };
@@ -29,10 +28,13 @@
 		0C879DAD1E535182004606F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C879DAC1E535182004606F2 /* Assets.xcassets */; };
 		0C879DB01E535182004606F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C879DAE1E535182004606F2 /* LaunchScreen.storyboard */; };
 		0C879DD31E5351F4004606F2 /* Ocarina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C879DCA1E5351F4004606F2 /* Ocarina.framework */; };
-		0C879DDA1E5351F4004606F2 /* OcarinaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C879DD91E5351F4004606F2 /* OcarinaTests.swift */; };
 		0C879DDC1E5351F4004606F2 /* Ocarina.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C879DCC1E5351F4004606F2 /* Ocarina.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C879DDF1E5351F4004606F2 /* Ocarina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C879DCA1E5351F4004606F2 /* Ocarina.framework */; };
 		0C879DE01E5351F4004606F2 /* Ocarina.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0C879DCA1E5351F4004606F2 /* Ocarina.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0C99F93E1E92725F000C5258 /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C99F93D1E92725F000C5258 /* CSS.swift */; };
+		0C99F9401E927726000C5258 /* InformationFetchingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C99F93F1E927726000C5258 /* InformationFetchingTests.swift */; };
+		0C99F9421E927C46000C5258 /* CachingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C99F9411E927C46000C5258 /* CachingTests.swift */; };
+		0C99F9451E92894F000C5258 /* PrefetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C99F9441E92894F000C5258 /* PrefetcherTests.swift */; };
 		0CF4451E1E63006A00E284FB /* OcarinaManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF4451D1E63006A00E284FB /* OcarinaManagerDelegate.swift */; };
 		0CF445201E6300F400E284FB /* OcarinaPrefetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF4451F1E6300F400E284FB /* OcarinaPrefetcher.swift */; };
 /* End PBXBuildFile section */
@@ -87,8 +89,7 @@
 		0C1AEEE01E54A0AD001A6234 /* URLInformationCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLInformationCache.swift; sourceTree = "<group>"; };
 		0C1AEEE21E54A0B6001A6234 /* URL+URLInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+URLInformation.swift"; sourceTree = "<group>"; };
 		0C1AEEF31E54B359001A6234 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
-		0C1AEEF71E55E61E001A6234 /* OcarinaTypesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OcarinaTypesTests.swift; sourceTree = "<group>"; };
-		0C38D4D81E8E53BE003E02E1 /* CSS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSS.swift; sourceTree = "<group>"; };
+		0C1AEEF71E55E61E001A6234 /* AdditionalParsingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalParsingTests.swift; sourceTree = "<group>"; };
 		0C38D4D91E8E53BE003E02E1 /* Kanna.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kanna.swift; sourceTree = "<group>"; };
 		0C38D4DA1E8E53BE003E02E1 /* libxmlHTMLDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = libxmlHTMLDocument.swift; sourceTree = "<group>"; };
 		0C38D4DB1E8E53BE003E02E1 /* libxmlHTMLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = libxmlHTMLNode.swift; sourceTree = "<group>"; };
@@ -103,8 +104,11 @@
 		0C879DCC1E5351F4004606F2 /* Ocarina.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ocarina.h; sourceTree = "<group>"; };
 		0C879DCD1E5351F4004606F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C879DD21E5351F4004606F2 /* OcarinaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OcarinaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0C879DD91E5351F4004606F2 /* OcarinaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OcarinaTests.swift; sourceTree = "<group>"; };
 		0C879DDB1E5351F4004606F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C99F93D1E92725F000C5258 /* CSS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSS.swift; sourceTree = "<group>"; };
+		0C99F93F1E927726000C5258 /* InformationFetchingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationFetchingTests.swift; sourceTree = "<group>"; };
+		0C99F9411E927C46000C5258 /* CachingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachingTests.swift; sourceTree = "<group>"; };
+		0C99F9441E92894F000C5258 /* PrefetcherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefetcherTests.swift; sourceTree = "<group>"; };
 		0CF4451D1E63006A00E284FB /* OcarinaManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OcarinaManagerDelegate.swift; sourceTree = "<group>"; };
 		0CF4451F1E6300F400E284FB /* OcarinaPrefetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OcarinaPrefetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,7 +160,7 @@
 		0C38D4D61E8E53A7003E02E1 /* Kanna */ = {
 			isa = PBXGroup;
 			children = (
-				0C38D4D81E8E53BE003E02E1 /* CSS.swift */,
+				0C99F93D1E92725F000C5258 /* CSS.swift */,
 				0C38D4D91E8E53BE003E02E1 /* Kanna.swift */,
 				0C38D4DA1E8E53BE003E02E1 /* libxmlHTMLDocument.swift */,
 				0C38D4DB1E8E53BE003E02E1 /* libxmlHTMLNode.swift */,
@@ -224,9 +228,11 @@
 		0C879DD81E5351F4004606F2 /* OcarinaTests */ = {
 			isa = PBXGroup;
 			children = (
-				0C879DD91E5351F4004606F2 /* OcarinaTests.swift */,
 				0C879DDB1E5351F4004606F2 /* Info.plist */,
-				0C1AEEF71E55E61E001A6234 /* OcarinaTypesTests.swift */,
+				0C1AEEF71E55E61E001A6234 /* AdditionalParsingTests.swift */,
+				0C99F93F1E927726000C5258 /* InformationFetchingTests.swift */,
+				0C99F9411E927C46000C5258 /* CachingTests.swift */,
+				0C99F9441E92894F000C5258 /* PrefetcherTests.swift */,
 			);
 			path = OcarinaTests;
 			sourceTree = "<group>";
@@ -323,7 +329,6 @@
 					0C879DD11E5351F4004606F2 = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
-						TestTargetID = 0C879D9F1E535182004606F2;
 					};
 				};
 			};
@@ -393,13 +398,13 @@
 			files = (
 				0C38D4DF1E8E53BE003E02E1 /* libxmlHTMLDocument.swift in Sources */,
 				0C38D4E11E8E53BE003E02E1 /* libxmlParserOption.swift in Sources */,
+				0C99F93E1E92725F000C5258 /* CSS.swift in Sources */,
 				0C1AEEDF1E54A0A3001A6234 /* OcarinaInformationRequest.swift in Sources */,
 				0C1AEEE11E54A0AD001A6234 /* URLInformationCache.swift in Sources */,
 				0CF4451E1E63006A00E284FB /* OcarinaManagerDelegate.swift in Sources */,
 				0C1AEEE31E54A0B6001A6234 /* URL+URLInformation.swift in Sources */,
 				0C1AEED91E54A086001A6234 /* Ocarina.swift in Sources */,
 				0C38D4E01E8E53BE003E02E1 /* libxmlHTMLNode.swift in Sources */,
-				0C38D4DD1E8E53BE003E02E1 /* CSS.swift in Sources */,
 				0C1AEEDD1E54A09A001A6234 /* URLInformation.swift in Sources */,
 				0C38D4DE1E8E53BE003E02E1 /* Kanna.swift in Sources */,
 				0C1AEEDB1E54A090001A6234 /* OcarinaManager.swift in Sources */,
@@ -411,8 +416,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C879DDA1E5351F4004606F2 /* OcarinaTests.swift in Sources */,
-				0C1AEEF81E55E61E001A6234 /* OcarinaTypesTests.swift in Sources */,
+				0C99F9421E927C46000C5258 /* CachingTests.swift in Sources */,
+				0C1AEEF81E55E61E001A6234 /* AdditionalParsingTests.swift in Sources */,
+				0C99F9401E927726000C5258 /* InformationFetchingTests.swift in Sources */,
+				0C99F9451E92894F000C5258 /* PrefetcherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,7 +654,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.awkward.OcarinaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ocarina Example.app/Ocarina Example";
 			};
 			name = Debug;
 		};
@@ -662,7 +668,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.awkward.OcarinaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ocarina Example.app/Ocarina Example";
 			};
 			name = Release;
 		};
