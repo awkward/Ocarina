@@ -60,7 +60,9 @@ open class OcarinaManager: NSObject {
     @discardableResult
     open func requestInformation(for url: URL, completionHandler: @escaping InformationCompletionHandler) -> OcarinaInformationRequest? {
         if self.shouldCacheResults, let result = self.cache[url] {
-            self.completeRequestsWithInformation(result, for: result.originalUrl)
+            DispatchQueue.main.async {
+                completionHandler(result, nil)
+            }
             return nil
         }
         let existingRequest = self.requests(for: url).first
