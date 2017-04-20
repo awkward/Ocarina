@@ -122,8 +122,8 @@ open class OcarinaManager: NSObject {
         }
     }
     
-    fileprivate func information(for url: URL, originalUrl: URL, html: HTMLDocument?, response: HTTPURLResponse?) -> URLInformation? {
-        var urlInformation = URLInformation(originalUrl: originalUrl, url: url, html: html, response: response)
+    fileprivate func information(for url: URL, originalURL: URL, html: HTMLDocument?, response: HTTPURLResponse?) -> URLInformation? {
+        var urlInformation = URLInformation(originalURL: originalURL, url: url, html: html, response: response)
         if let delegate = self.delegate, let information = urlInformation {
             urlInformation = delegate.ocarinaManager(manager: self, doAdditionalParsingForInformation: information, html: nil)
         }
@@ -193,18 +193,18 @@ extension OcarinaManager: URLSessionDataDelegate {
     }
     
     fileprivate func taskDidComplete(_ task: URLSessionTask, data: Data?, error: Error?, response: HTTPURLResponse?) {
-        guard let originalUrl = self.requests(for: task).first?.url else {
+        guard let originalURL = self.requests(for: task).first?.url else {
             return
         }
-        let url = task.currentRequest?.url ?? originalUrl
+        let url = task.currentRequest?.url ?? originalURL
         if let response = response, response.statusCode < 200 && response.statusCode >= 300 {
             //We don't have a valid response, we end it here! If we don't have a response at all, we will just continue
             let newError = NSError(domain: "co.awkward.ocarina", code: 500, userInfo: [NSLocalizedDescriptionKey: "Invalid response receibved from URL"])
-            self.completeRequestsWithError(newError, for: originalUrl)
+            self.completeRequestsWithError(newError, for: originalURL)
             return
         }
         if let error = error, data == nil {
-            self.completeRequestsWithError(error, for: originalUrl)
+            self.completeRequestsWithError(error, for: originalURL)
             return
         }
         
@@ -213,12 +213,12 @@ extension OcarinaManager: URLSessionDataDelegate {
             html = HTML(html: data, encoding: .utf8)
         }
         
-        if let urlInformation = self.information(for: url, originalUrl: originalUrl, html: html, response: response) {
-            self.cache[originalUrl] = urlInformation
-            self.completeRequestsWithInformation(urlInformation, for: originalUrl)
+        if let urlInformation = self.information(for: url, originalURL: originalURL, html: html, response: response) {
+            self.cache[originalURL] = urlInformation
+            self.completeRequestsWithInformation(urlInformation, for: originalURL)
         } else {
             let newError = error ?? NSError(domain: "co.awkward.ocarina", code: 501, userInfo: [NSLocalizedDescriptionKey: "Invalid data received from URL"])
-            self.completeRequestsWithError(newError, for: originalUrl)
+            self.completeRequestsWithError(newError, for: originalURL)
         }
     }
     

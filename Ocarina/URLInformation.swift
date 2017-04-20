@@ -132,7 +132,7 @@ public enum URLInformationType: String {
 public class URLInformation: NSCoding, Equatable {
     
     /// The original URL the information was requested for.
-    public let originalUrl: URL
+    public let originalURL: URL
     
     /// The contents of the og:url tag of the link.
     /// If the Open Graph URL is not present, this will match the original or have the redirect URL if a redirect occured.
@@ -148,7 +148,9 @@ public class URLInformation: NSCoding, Equatable {
     
     /// An URL to an image that was provided as the og:image tag.
     /// If og:image is not present, it will fallback to the "apple touch icon" if present.
-    public var imageUrl: URL?
+    public var imageURL: URL?
+    
+    public var faviconURL: URL?
     
     /// The type of the content behind the URL, this is determented (in order) by the `og:type` tag or mimetype
     public var type: URLInformationType
@@ -156,12 +158,12 @@ public class URLInformation: NSCoding, Equatable {
     /// Create a new instance of URLInformation with the given URL and title
     ///
     /// - Parameters:
-    ///   - originalUrl: The original URL the request was created with
+    ///   - originalURL: The original URL the request was created with
     ///   - url: The URL which the information corrisponds to. This might be an redirected url.
     ///   - html: The html of the page, this is used to search for (head) tags.
     ///   - response: The HTTP response for the page, this includes the status code.
-    init?(originalUrl: URL, url: URL, html: HTMLDocument?, response: HTTPURLResponse?) {
-        self.originalUrl = originalUrl
+    init?(originalURL: URL, url: URL, html: HTMLDocument?, response: HTTPURLResponse?) {
+        self.originalURL = originalURL
         self.url = url
         if let html = html {
             
@@ -187,20 +189,20 @@ public class URLInformation: NSCoding, Equatable {
                 self.descriptionText = nil
             }
             
-            if let imageUrlString = html.xpath("/html/head/meta[(@property|@name)=\"og:image\"]/@content").first?.text {
-                if let imageUrl = URL(string: imageUrlString), url.host != nil && url.scheme != nil {
-                    self.imageUrl = imageUrl
+            if let imageURLString = html.xpath("/html/head/meta[(@property|@name)=\"og:image\"]/@content").first?.text {
+                if let imageURL = URL(string: imageURLString), url.host != nil && url.scheme != nil {
+                    self.imageURL = imageURL
                 } else {
-                    self.imageUrl = URL(string: imageUrlString, relativeTo: url)
+                    self.imageURL = URL(string: imageURLString, relativeTo: url)
                 }
-            } else if let imageUrlString = html.xpath("/html/head/link[@rel=\"apple-touch-icon\"]/@content").first?.text {
-                if let imageUrl = URL(string: imageUrlString), url.host != nil && url.scheme != nil {
-                    self.imageUrl = imageUrl
+            } else if let imageURLString = html.xpath("/html/head/link[@rel=\"apple-touch-icon\"]/@content").first?.text {
+                if let imageURL = URL(string: imageURLString), url.host != nil && url.scheme != nil {
+                    self.imageURL = imageURL
                 } else {
-                    self.imageUrl = URL(string: imageUrlString, relativeTo: url)
+                    self.imageURL = URL(string: imageURLString, relativeTo: url)
                 }
             } else {
-                self.imageUrl = nil
+                self.imageURL = nil
             }
             
         } else {
@@ -216,10 +218,10 @@ public class URLInformation: NSCoding, Equatable {
     }
     
     public required init?(coder aDecoder: NSCoder) {
-        guard let originalUrl = aDecoder.decodeObject(forKey: "originalUrl") as? URL, let url = aDecoder.decodeObject(forKey: "url") as? URL else {
+        guard let originalURL = aDecoder.decodeObject(forKey: "originalURL") as? URL, let url = aDecoder.decodeObject(forKey: "url") as? URL else {
             return nil
         }
-        self.originalUrl = originalUrl
+        self.originalURL = originalURL
         self.url = url
         self.title = aDecoder.decodeObject(forKey: "title") as? String
         self.descriptionText = aDecoder.decodeObject(forKey: "description") as? String
@@ -231,7 +233,7 @@ public class URLInformation: NSCoding, Equatable {
     }
     
     public func encode(with aCoder: NSCoder) {
-        aCoder.encode(self.originalUrl, forKey: "originalUrl")
+        aCoder.encode(self.originalURL, forKey: "originalURL")
         aCoder.encode(self.url, forKey: "url")
         aCoder.encode(self.title, forKey: "title")
         aCoder.encode(self.descriptionText, forKey: "descriptiom")

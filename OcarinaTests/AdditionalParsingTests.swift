@@ -75,13 +75,13 @@ extension AdditionalParsingTests: OcarinaManagerDelegate {
         let newInformation = information
         
         // Spotify redirects to a browser-not-supported url. So we use the original URL
-        if information.originalUrl.host == "play.spotify.com" {
+        if information.originalURL.host == "play.spotify.com" {
             newInformation.title = "Spotify"
-            if information.originalUrl.pathComponents.contains("track") {
+            if information.originalURL.pathComponents.contains("track") {
                 newInformation.type = .musicSong
-            } else if information.originalUrl.pathComponents.contains("album") {
+            } else if information.originalURL.pathComponents.contains("album") {
                 newInformation.type = .musicAlbum
-            } else if information.originalUrl.pathComponents.contains("playlist") {
+            } else if information.originalURL.pathComponents.contains("playlist") {
                 newInformation.type = .musicPlaylist
             }
         }

@@ -150,17 +150,17 @@ class LinkPreviewView: UIControl {
     }
     
     fileprivate func reloadContents() {
-        self.previewImageView.isHidden = self.information?.imageUrl == nil
+        self.previewImageView.isHidden = self.information?.imageURL == nil
         self.previewImageView.image = nil
         
         self.reloadDomainName()
         
         self.setNeedsLayout()
         
-        if let imageUrl = self.information?.imageUrl {
-            self.imageTask = URLSession.shared.downloadTask(with: imageUrl, completionHandler: { (fileUrl, reponse, error) in
-                if let fileUrl = fileUrl {
-                    let image = UIImage(contentsOfFile: fileUrl.path)
+        if let imageURL = self.information?.imageURL {
+            self.imageTask = URLSession.shared.downloadTask(with: imageURL, completionHandler: { (fileURL, reponse, error) in
+                if let fileURL = fileURL {
+                    let image = UIImage(contentsOfFile: fileURL.path)
                     DispatchQueue.main.async {
                         if self.previewImageView.alpha == 0 {
                             self.doneLoading(animated: true)

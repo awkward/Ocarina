@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         _ = URL(string: "https://www.youtube.com/watch?v=Jfg6RfClZJg")?.oca.fetchInformation { (information, error) in
             if let information = information {
-                print("Information received \(information) for url \(information.originalUrl) type \(information.type.rawValue)")
+                print("Information received \(information) for url \(information.originalURL) type \(information.type.rawValue)")
             } else if let error = error {
                 print("Error \(error.localizedDescription)")
             }
@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         _ = URL(string: "http://simlicious.nl/2017/01/24/de-sims-4-vampieren-nu-verkrijgbaar/")?.oca.fetchInformation { (information, error) in
             if let information = information {
-                print("Information received \(information) for url \(information.originalUrl) type \(information.type.rawValue)")
+                print("Information received \(information) for url \(information.originalURL) type \(information.type.rawValue)")
             } else if let error = error {
                 print("Error \(error.localizedDescription)")
             }
@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         _ = URL(string: "http://www.deezer.com/playlist/68020160")?.oca.fetchInformation { (information, error) in
             if let information = information {
-                print("Information received \(information) for url \(information.originalUrl) type \(information.type.rawValue)")
+                print("Information received \(information) for url \(information.originalURL) type \(information.type.rawValue)")
             } else if let error = error {
                 print("Error \(error.localizedDescription)")
             }
@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         _ = URL(string: "http://www.deezer.com/playlist/68020160")?.oca.fetchInformation { (information, error) in
             if let information = information {
-                print("Information received \(information) for url \(information.originalUrl) type \(information.type.rawValue)")
+                print("Information received \(information) for url \(information.originalURL) type \(information.type.rawValue)")
             } else if let error = error {
                 print("Error \(error.localizedDescription)")
             }
@@ -64,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         _ = URL(string: "http://reddit.com/r/zelda")?.oca.fetchInformation { (information, error) in
             if let information = information {
-                print("Information received \(information) for url \(information.originalUrl) type \(information.type.rawValue)")
+                print("Information received \(information) for url \(information.originalURL) type \(information.type.rawValue)")
             } else if let error = error {
                 print("Error \(error.localizedDescription)")
             }
@@ -72,7 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         _ = URL(string: "https://www.nytimes.com/2017/02/16/sports/bighorn-sheep-hunting.html?hp&action=click&pgtype=Homepage&clickSource=story-heading&module=photo-spot-region&region=top-news&WT.nav=top-news&_r=0")?.oca.fetchInformation { (information, error) in
             if let information = information {
-                print("Information received \(information) for url \(information.originalUrl) type \(information.type.rawValue)")
+                print("Information received \(information) for url \(information.originalURL) type \(information.type.rawValue)")
             } else if let error = error {
                 print("Error \(error.localizedDescription)")
             }
@@ -80,7 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         _ = URL(string: "http://renssies.nl")?.oca.fetchInformation { (information, error) in
             if let information = information {
-                print("Information received \(information) for url \(information.originalUrl) type \(information.type.rawValue)")
+                print("Information received \(information) for url \(information.originalURL) type \(information.type.rawValue)")
             } else if let error = error {
                 print("Error \(error.localizedDescription)")
             }
@@ -88,7 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         _ = URL(string: "http://awkward.co")?.oca.fetchInformation { (information, error) in
             if let information = information {
-                print("Information received \(information) for url \(information.originalUrl) type \(information.type.rawValue)")
+                print("Information received \(information) for url \(information.originalURL) type \(information.type.rawValue)")
             } else if let error = error {
                 print("Error \(error.localizedDescription)")
             }
@@ -96,7 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         _ = URL(string: "http://i.imgur.com/XJHt6Wk.jpg")?.oca.fetchInformation { (information, error) in
             if let information = information {
-                print("Information received \(information) for url \(information.originalUrl) type \(information.type.rawValue)")
+                print("Information received \(information) for url \(information.originalURL) type \(information.type.rawValue)")
             } else if let error = error {
                 print("Error \(error.localizedDescription)")
             }
@@ -104,7 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         _ = URL(string: "https://www.nintendo.com/consumer/downloads/WiiOpMn_setup.pdf")?.oca.fetchInformation { (information, error) in
             if let information = information {
-                print("Information received \(information) for url \(information.originalUrl) type \(information.type.rawValue)")
+                print("Information received \(information) for url \(information.originalURL) type \(information.type.rawValue)")
             } else if let error = error {
                 print("Error \(error.localizedDescription)")
             }
