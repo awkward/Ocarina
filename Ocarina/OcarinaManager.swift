@@ -8,10 +8,6 @@
 
 import Foundation
 
-//TODO: Improve delegate
-//TODO: Allow providing a custom URL request using delegate
-//TODO: Change "file" to a enum with associated type
-
 /// Manages the requests of informations for each URL and makes sure the information is cached.
 open class OcarinaManager: NSObject {
     
