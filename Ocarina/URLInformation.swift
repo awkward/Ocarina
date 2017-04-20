@@ -142,15 +142,23 @@ public class URLInformation: NSCoding, Equatable {
     /// If og:title is not present, there is a fallback to the `<title>` html tag.
     public var title: String?
     
-    /// The contents of the og:title tag of the link.
-    /// If og:title is not present, there is a fallback to the `<meta type="description">` html tag.
+    /// The contents of the og:description tag of the link.
+    /// If og:description is not present, there is a fallback to the `<meta type="description">` html tag.
     public var descriptionText: String?
     
     /// An URL to an image that was provided as the og:image tag.
-    /// If og:image is not present, it will fallback to the "apple touch icon" if present.
     public var imageURL: URL?
     
+    /// An URL to the Favicon image that was provided by the icon link tag. 
+    /// Domains may also have a faveicon at `http://DOMAIN.TLD/favicon.ico`. However this property only checks for the tag in the head of a page.
+    /// You may still do a HEAD request to see if the icon is avaible at that URL.
     public var faviconURL: URL?
+    
+    /// An URL to the Apple Touch Icon (Homescreen icon) that was provided by the apple-touch-icon tag.
+    /// Domains may also have a icon at `http://DOMAIN.TLD/apple-touch-icon.png`. However this property only checks for the tag in the head of a page.
+    /// You may still do a HEAD request to see if the icon is avaible at that URL.
+    /// This property ignores additional sizes.
+    public var appleTouchIconURL: URL?
     
     /// The type of the content behind the URL, this is determented (in order) by the `og:type` tag or mimetype
     public var type: URLInformationType
@@ -177,36 +185,32 @@ public class URLInformation: NSCoding, Equatable {
                 self.title = title
             } else if let title = html.title {
                 self.title = title
-            } else {
-                self.title = nil
             }
             
             if let descriptionText = html.xpath("/html/head/meta[(@property|@name)=\"og:description\"]/@content").first?.text {
                 self.descriptionText = descriptionText
             } else if let descriptionText = html.xpath("/html/head/meta[(@property|@name)=\"description\"]/@content").first?.text {
                 self.descriptionText = descriptionText
-            } else {
-                self.descriptionText = nil
             }
             
             if let imageURLString = html.xpath("/html/head/meta[(@property|@name)=\"og:image\"]/@content").first?.text {
-                if let imageURL = URL(string: imageURLString), url.host != nil && url.scheme != nil {
-                    self.imageURL = imageURL
-                } else {
-                    self.imageURL = URL(string: imageURLString, relativeTo: url)
-                }
-            } else if let imageURLString = html.xpath("/html/head/link[@rel=\"apple-touch-icon\"]/@content").first?.text {
-                if let imageURL = URL(string: imageURLString), url.host != nil && url.scheme != nil {
-                    self.imageURL = imageURL
-                } else {
-                    self.imageURL = URL(string: imageURLString, relativeTo: url)
-                }
-            } else {
-                self.imageURL = nil
+                self.imageURL = URL(string: imageURLString, relativeTo: url)
+            }
+            
+            if let faviconURLString = html.xpath("/html/head/link[@rel=\"shortcut icon\"]/@href").first?.text {
+                self.faviconURL = URL(string: faviconURLString, relativeTo: url)
+            } else if let faviconURLString = html.xpath("/html/head/link[@rel=\"icon\"]/@href").first?.text {
+                self.faviconURL = URL(string: faviconURLString, relativeTo: url)
+            }
+            
+            if let appleTouchIconURLString = html.xpath("/html/head/link[@rel=\"apple-touch-icon\" and not(@sizes)]/@href").first?.text {
+                self.appleTouchIconURL = URL(string: appleTouchIconURLString, relativeTo: url)
+            } else if let appleTouchIconURLString = html.xpath("/html/head/link[@rel=\"apple-touch-icon-precomposed\" and not(@sizes)]/@href").first?.text {
+                self.appleTouchIconURL = URL(string: appleTouchIconURLString, relativeTo: url)
             }
             
         } else {
-            //If the HTML is not available, we only determine the type based on the extension of mime type
+            //If the HTML is not available, we only determine the type based on the mime type
             if let mimeType = response?.mimeType {
                 self.type = URLInformationType.type(forMimeType: mimeType)
             } else {

@@ -38,6 +38,8 @@ class InformationFetchingTests: XCTestCase {
             XCTAssert(information?.title?.characters.count ?? 0 > 0, "The article should have a title of at least 1 character.")
             XCTAssert(information?.descriptionText?.characters.count ?? 0 > 0, "The article should have a description of at least 1 character.")
             XCTAssert(information?.imageURL != nil, "The article should have an image.")
+            XCTAssert(information?.faviconURL != nil, "The link should have a favicon.")
+            XCTAssert(information?.appleTouchIconURL != nil, "The link should have a apple touch icon.")
             
             expectation.fulfill()
         }
@@ -56,7 +58,7 @@ class InformationFetchingTests: XCTestCase {
             return
         }
         
-        let expectation = self.expectation(description: "The new york times article should have some basic information.")
+        let expectation = self.expectation(description: "This link should have basic information but, not from OGP")
         url.oca.fetchInformation { (information, error) in
             XCTAssertNil(error, "An error occured fetching the information")
             XCTAssertNotNil(information, "Information is missing")
@@ -65,6 +67,8 @@ class InformationFetchingTests: XCTestCase {
             XCTAssert(information?.title?.characters.count ?? 0 > 0, "The article should have a title of at least 1 character.")
             XCTAssert(information?.descriptionText?.characters.count ?? 0 > 0, "The article should have a description of at least 1 character.")
             XCTAssert(information?.imageURL == nil, "The link shouldn't have an image.")
+            XCTAssert(information?.faviconURL != nil, "The link should have a favicon.")
+            XCTAssert(information?.appleTouchIconURL != nil, "The link should have a apple touch icon.")
             
             expectation.fulfill()
             
@@ -84,7 +88,7 @@ class InformationFetchingTests: XCTestCase {
             return
         }
         
-        let expectation = self.expectation(description: "The new york times article should have some basic information.")
+        let expectation = self.expectation(description: "The file should have a file URL and be of type file.")
         url.oca.fetchInformation { (information, error) in
             XCTAssertNil(error, "An error occured fetching the information")
             XCTAssertNotNil(information, "Information is missing")
@@ -110,7 +114,7 @@ class InformationFetchingTests: XCTestCase {
             return
         }
         
-        let expectation = self.expectation(description: "The request should immediatly be cancelled")
+        let expectation = self.expectation(description: "The request should immediately be cancelled")
         let request = url.oca.fetchInformation { (information, error) in
             XCTAssert(information == nil, "A cancelled request shouldn't have information.")
             XCTAssert(error == nil, "A cancelled request shouldn't have an error.")
