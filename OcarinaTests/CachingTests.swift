@@ -38,6 +38,35 @@ class CachingTests: XCTestCase {
         }
     }
     
+    func testSecondRequest() {
+        guard let url = URL(string: "https://www.reddit.com") else {
+            XCTFail("Invalid URL")
+            return
+        }
+        
+        let expectation = self.expectation(description: "After getting a link once, the next requests should also return data.")
+        url.oca.fetchInformation { (information, error) in
+            url.oca.fetchInformation { (information, error) in
+                XCTAssertNil(error, "An error occured fetching the information")
+                XCTAssertNotNil(information, "Information is missing")
+                
+                XCTAssert(information?.title?.characters.count ?? 0 > 0, "The article should have a title of at least 1 character.")
+                
+                if OcarinaManager.shared.cache[url]?.title?.characters.count ?? 0 > 0 {
+                    expectation.fulfill()
+                } else {
+                    XCTFail("Information should be in the cache.")
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: 4) { (error) in
+            if let error = error {
+                XCTFail("Expectation Failed with error: \(error)");
+            }
+        }
+    }
+    
     func testRemovingFromCache() {
         guard let url = URL(string: "https://www.reddit.com/r/worldnews") else {
             XCTFail("Invalid URL")
