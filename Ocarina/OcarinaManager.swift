@@ -23,8 +23,8 @@ open class OcarinaManager: NSObject {
     /// The delegate for the Ocarina Manager. See OcarinaManagerDelegate
     open var delegate: OcarinaManagerDelegate?
     
-    
-    fileprivate var dataPerTask = [URLSessionTask: Data]()
+    /// The received data per task identifier.
+    fileprivate var dataPerTask = [Int: Data]()
     
     /// If the OcarinaManager should cache the URLInformation models
     open var shouldCacheResults = true {
@@ -34,6 +34,9 @@ open class OcarinaManager: NSObject {
             }
         }
     }
+    
+    /// The barrier queue used when accessing dataPerTask.
+    let barrierQueue = DispatchQueue(label: "ocarina-barrier-handling-queue")
     
     lazy fileprivate var urlSession: URLSession = {
         return URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: nil)
@@ -83,7 +86,9 @@ open class OcarinaManager: NSObject {
     /// - Returns: The data task
     fileprivate func dataTask(for url: URL) -> URLSessionDataTask {
         var request = URLRequest(url: url)
+        request.cachePolicy = .reloadIgnoringLocalCacheData
         request.setValue("Ocarinabot", forHTTPHeaderField: "User-agent")
+        request.setValue("text/html", forHTTPHeaderField: "Accept")
         return self.urlSession.dataTask(with: request)
     }
     
@@ -161,7 +166,6 @@ open class OcarinaManager: NSObject {
             }
         }
     }
-    
 }
 
 extension OcarinaManager: URLSessionDataDelegate {
@@ -170,26 +174,36 @@ extension OcarinaManager: URLSessionDataDelegate {
         if let httpResponse = response as? HTTPURLResponse, let mimeType = response.mimeType?.lowercased() {
             if URLInformationType.htmlFileMimeTypes.contains(mimeType) {
                 completionHandler(URLSession.ResponseDisposition.allow)
+                return
             } else {
                 self.taskDidComplete(dataTask, data: nil, error: nil, response: httpResponse)
                 completionHandler(URLSession.ResponseDisposition.cancel)
+                return
             }
         }
         completionHandler(URLSession.ResponseDisposition.allow)
     }
     
     public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
-        if var existingData = self.dataPerTask[dataTask] {
-            existingData.append(data)
-            self.dataPerTask[dataTask] = existingData
-        } else {
-            self.dataPerTask[dataTask] = data
+        self.barrierQueue.sync {
+            if var existingData = self.dataPerTask[dataTask.taskIdentifier] {
+                existingData.append(data)
+                self.dataPerTask[dataTask.taskIdentifier] = existingData
+            } else {
+                self.dataPerTask[dataTask.taskIdentifier] = data
+            }
         }
+        
     }
     
     public func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-        self.taskDidComplete(task, data: self.dataPerTask[task], error: error, response: task.response as? HTTPURLResponse)
-        self.dataPerTask[task] = nil
+        let data = dataPerTask[task.taskIdentifier]
+        barrierQueue.sync(flags: .barrier) {
+            self.dataPerTask.removeValue(forKey: task.taskIdentifier)
+            return
+        }
+        self.taskDidComplete(task, data: data, error: error, response: task.response as? HTTPURLResponse)
+        
     }
     
     fileprivate func taskDidComplete(_ task: URLSessionTask, data: Data?, error: Error?, response: HTTPURLResponse?) {
