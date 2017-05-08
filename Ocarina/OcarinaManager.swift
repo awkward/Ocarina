@@ -38,8 +38,11 @@ open class OcarinaManager: NSObject {
     /// The barrier queue used when accessing dataPerTask.
     let barrierQueue = DispatchQueue(label: "ocarina-barrier-handling-queue")
     
-    lazy fileprivate var urlSession: URLSession = {
-        return URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: nil)
+    /// The current session configuration. Can be used to register custom protocols on.
+    public var sessionConfiguration = URLSessionConfiguration.default
+    
+    fileprivate lazy var urlSession: URLSession = {
+        return URLSession(configuration: self.sessionConfiguration, delegate: self, delegateQueue: nil)
     }()
     
     override public init() {
