@@ -69,5 +69,5 @@ Contributing is easy. If you want to report an error of any kind, please create 
 
 # Links
 
-  - Awkward
-  - Beam 
+  - [Awkward](https://awkward.co)
+  - [Beam](https://beamreddit.com) 
