@@ -2,43 +2,72 @@
 
 A library to receive metadata and Open Graph information from URLs.
 
-### Introduction
+# Introduction
 
-Hi, we're <a href="https://awkward.co/" target="_blank">Awkward</a>. We were looking for a way to visualize information behind links to present these in our iOS reddit client called <a href="https://beamreddit.com/" target="_blank">Beam</a>. We initially used a server to receive metadata, but the server became quite crowded with calls. We built Ocarina as a solution to that problem. Fallbacks for basic HTML tags and Twitter card information make this metadata fetcher unique. We welcome you to use Ocarina for your own projects. 
+Hi, we're Awkward. We were looking for a way to visualize information behind links to present these in our iOS reddit client called Beam. We initially used a server to receive metadata, but the server became quite crowded with calls. We built Ocarina as a solution to that problem. Fallbacks for basic HTML tags and Twitter card information make this metadata fetcher unique. We welcome you to use Ocarina for your own projects. 
 
-### Features
+# Features
 
+  
 - Fetching of basic metadata for individual links using the OGP protocol or basic HTML tags (twitter card information also available)
 - Memory cache of metadata for each link
 - Prefetching a set of links to make views more responsive
 - Link information can include: type, title, description, image, image size, favicon, and Apple touch icon
 
-### Getting started
+# Installation
 
-Bug Reports & Feature Requests
-Please use the issue tracker to report any bugs or file feature requests.
 
-> Link to issue tracker
+1. Drag Ocarina.xcodeproj into your project
+2. Go to your project
+3. Select Build Phases
+4. Under Embed frameworks, press + and select Ocarina.framework
+5. Select Build Settings
+6. Search for `Other Linker Flags` and add `-lxml2`
 
-Developing
-PRs are welcome. To begin developing, do this:
+# Usage
 
-> Info on how to develop
+### Fetching information for a single link
 
-### Documentation
+```Swift
+let url = URL(string: "https://awkward.co")!
+link.oca.fetchInformation(completionHandler: { (information, error) in
+  if let information = information {
+    print(String(describing: information.title))
+  } else if let error = error {
+    print(String(describing: error))
+  }
 
-> We're trying to keep our documentation as updated as possible. Here you can find more information on Ocarina.
+})
+```
 
-### License
+### Prefetching multiple links
+
+OcarinaPrefetcher allows prefetching links into the cache, this allows for the UI to look more responsive.
+
+```Swift
+let urls = [
+  URL(string: "https://awkward.co")!,
+  URL(string: "https://facebook.com")!,
+  URL(string: "https://nytimes.com")!,
+  URL(string: "https://latimes.com")!
+]
+let prefetcher = OcarinaPrefetcher(urls: urls, completionHandler: { (errors) in§
+  print("Done pre-fetching links")
+})
+```
+
+For other uses, see the example project
+
+# Contributing
+
+Contributing is easy. If you want to report an error of any kind, please create an issue. If you want to propose a change, a pull request is the right way to go.
+
+# License
+
 
 > Ocarina is available under the MIT license. See the LICENSE file for more info.
 
-### Links
+# Links
 
-- Website
-  - <a href="https://awkward.co/" target="_blank">Awkward</a>
-  - <a href="https://beamreddit.com/" target="_blank">Beam</a>
-- Documentation
-- Forum
-- Issue tracker
-- Source code
+  - Awkward
+  - Beam 
