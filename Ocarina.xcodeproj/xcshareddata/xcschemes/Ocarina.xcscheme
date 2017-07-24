@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0C879DD11E5351F4004606F2"
+               BuildableName = "OcarinaTests.xctest"
+               BlueprintName = "OcarinaTests"
+               ReferencedContainer = "container:Ocarina.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "0C879DC91E5351F4004606F2"
+            BuildableName = "Ocarina.framework"
+            BlueprintName = "Ocarina"
+            ReferencedContainer = "container:Ocarina.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
