@@ -1,10 +1,14 @@
 # Ocarina
 
+[![Build Status](https://travis-ci.org/awkward/Ocarina.svg?branch=master)](https://travis-ci.org/awkward/Ocarina)
+[![Contact](https://img.shields.io/badge/contact-madeawkward-blue.svg?style=flat)](https://twitter.com/madeawkward)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A library to receive metadata and Open Graph information from URLs.
 
 ### Introduction
 
-Hi, we're <a href="https://awkward.co/" target="_blank">Awkward</a>. We were looking for a way to visualize information behind links to present these in our iOS reddit client called <a href="https://beamreddit.com/" target="_blank">Beam</a>. We initially used a server to receive metadata, but the server became quite crowded with calls. We built Ocarina as a solution to that problem. Fallbacks for basic HTML tags and Twitter card information make this metadata fetcher unique. We welcome you to use Ocarina for your own projects. 
+Hi, we're [Awkward](https://awkward.co/). We were looking for a way to visualize information behind links to present these in our iOS reddit client called [Beam](https://beamreddit.com/). We initially used a server to receive metadata, but the server became quite crowded with calls. We built Ocarina as a solution to that problem. Fallbacks for basic HTML tags and Twitter card information make this metadata fetcher unique. We welcome you to use Ocarina for your own projects.
 
 ### Features
 
@@ -69,4 +73,4 @@ Contributing is easy. If you want to report an error of any kind, please create 
 ### Links
 
   - [Awkward](https://awkward.co)
-  - [Beam](https://beamreddit.com) 
+  - [Beam](https://beamreddit.com)

@@ -1,0 +1,5 @@
+language: swift
+osx_image: xcode8.3
+xcode_sdk: iphonesimulator10.3
+script:
+- xcodebuild clean build test -project Ocarina.xcodeproj -scheme Ocarina -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.3.1'
