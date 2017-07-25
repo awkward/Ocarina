@@ -26,9 +26,10 @@ class AdditionalParsingTests: XCTestCase {
         OcarinaManager.shared.cache.clear()
     }
     
-    func testMusicPlaylistType() {
-        self.testTypeOfInformation(for: "http://www.deezer.com/playlist/68020160", expectedType: .musicPlaylist)
-    }
+// This test has been disabled for now. Deezer now shows a login page before showing the playlist, so the type is incorrect.
+//    func testMusicPlaylistType() {
+//        self.testTypeOfInformation(for: "http://www.deezer.com/playlist/68020160", expectedType: .musicPlaylist)
+//    }
     
     func testSpotifyMusicSongType() {
         self.testTypeOfInformation(for: "https://play.spotify.com/track/35uTIuGU2vTSjovoFLzul7?play=true&utm_source=open.spotify.com&utm_medium=open", expectedType: .musicSong)
