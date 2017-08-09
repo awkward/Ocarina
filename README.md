@@ -1,8 +1,18 @@
-# Ocarina
-
-[![Build Status](https://travis-ci.org/awkward/Ocarina.svg?branch=master)](https://travis-ci.org/awkward/Ocarina)
-[![Contact](https://img.shields.io/badge/contact-madeawkward-blue.svg?style=flat)](https://twitter.com/madeawkward)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<h1 align="center">
+  <img src="Docs/banner.png">
+  Ocarina<br>
+  <p align="center">
+  <a href="https://travis-ci.org/awkward/Ocarina">
+    <img src="https://travis-ci.org/awkward/Ocarina.svg?branch=master" alt="Build Status">
+  </a>
+  <a href="https://twitter.com/madeawkward">
+    <img src="https://img.shields.io/badge/contact-madeawkward-blue.svg?style=flat" alt="Contact">
+  </a>
+  <a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT">
+  </a>
+</p>
+</h1>
 
 A library to receive metadata and Open Graph information from URLs.
 
