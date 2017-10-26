@@ -187,7 +187,9 @@ extension OcarinaManager: URLSessionDataDelegate {
         completionHandler(URLSession.ResponseDisposition.allow)
     }
     
-    public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+    // Note: Using optional `Data` to fix a crash: https://github.com/Alamofire/Alamofire/issues/2138
+    public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data?) {
+        guard let data = data else { return }
         self.barrierQueue.sync {
             if var existingData = self.dataPerTask[dataTask.taskIdentifier] {
                 existingData.append(data)

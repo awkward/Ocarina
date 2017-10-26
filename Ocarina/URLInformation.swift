@@ -6,7 +6,7 @@
 //  Copyright © 2017 awkward. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import AVFoundation
 
 public enum URLInformationType: String {
