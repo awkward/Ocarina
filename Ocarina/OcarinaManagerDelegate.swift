@@ -6,7 +6,7 @@
 //  Copyright © 2017 awkward. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 public protocol OcarinaManagerDelegate: class {
     
