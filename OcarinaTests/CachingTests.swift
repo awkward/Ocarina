@@ -22,9 +22,9 @@ class CachingTests: XCTestCase {
             XCTAssertNil(error, "An error occured fetching the information")
             XCTAssertNotNil(information, "Information is missing")
             
-            XCTAssert(information?.title?.characters.count ?? 0 > 0, "The article should have a title of at least 1 character.")
+            XCTAssert(information?.title?.count ?? 0 > 0, "The article should have a title of at least 1 character.")
             
-            if OcarinaManager.shared.cache[url]?.title?.characters.count ?? 0 > 0 {
+            if OcarinaManager.shared.cache[url]?.title?.count ?? 0 > 0 {
                 expectation.fulfill()
             } else {
                 XCTFail("Information should be in the cache.")
@@ -50,9 +50,9 @@ class CachingTests: XCTestCase {
                 XCTAssertNil(error, "An error occured fetching the information")
                 XCTAssertNotNil(information, "Information is missing")
                 
-                XCTAssert(information?.title?.characters.count ?? 0 > 0, "The article should have a title of at least 1 character.")
+                XCTAssert(information?.title?.count ?? 0 > 0, "The article should have a title of at least 1 character.")
                 
-                if OcarinaManager.shared.cache[url]?.title?.characters.count ?? 0 > 0 {
+                if OcarinaManager.shared.cache[url]?.title?.count ?? 0 > 0 {
                     expectation.fulfill()
                 } else {
                     XCTFail("Information should be in the cache.")
@@ -78,9 +78,9 @@ class CachingTests: XCTestCase {
             XCTAssertNil(error, "An error occured fetching the information")
             XCTAssertNotNil(information, "Information is missing")
             
-            XCTAssert(information?.title?.characters.count ?? 0 > 0, "The article should have a title of at least 1 character.")
+            XCTAssert(information?.title?.count ?? 0 > 0, "The article should have a title of at least 1 character.")
             
-            if OcarinaManager.shared.cache[url]?.title?.characters.count ?? 0 > 0 {
+            if OcarinaManager.shared.cache[url]?.title?.count ?? 0 > 0 {
                 OcarinaManager.shared.cache[url] = nil
                 if OcarinaManager.shared.cache[url] == nil {
                     expectation.fulfill()
@@ -110,9 +110,9 @@ class CachingTests: XCTestCase {
             XCTAssertNil(error, "An error occured fetching the information")
             XCTAssertNotNil(information, "Information is missing")
             
-            XCTAssert(information?.title?.characters.count ?? 0 > 0, "The article should have a title of at least 1 character.")
+            XCTAssert(information?.title?.count ?? 0 > 0, "The article should have a title of at least 1 character.")
             
-            if OcarinaManager.shared.cache[url]?.title?.characters.count ?? 0 > 0 {
+            if OcarinaManager.shared.cache[url]?.title?.count ?? 0 > 0 {
                 OcarinaManager.shared.cache.clear()
                 
                 if OcarinaManager.shared.cache[url] == nil {

@@ -35,8 +35,8 @@ class InformationFetchingTests: XCTestCase {
             XCTAssertNotNil(information, "Information is missing")
             
             XCTAssert(information?.type == .article, "The link should be of type article.")
-            XCTAssert(information?.title?.characters.count ?? 0 > 0, "The article should have a title of at least 1 character.")
-            XCTAssert(information?.descriptionText?.characters.count ?? 0 > 0, "The article should have a description of at least 1 character.")
+            XCTAssert(information?.title?.count ?? 0 > 0, "The article should have a title of at least 1 character.")
+            XCTAssert(information?.descriptionText?.count ?? 0 > 0, "The article should have a description of at least 1 character.")
             XCTAssert(information?.imageURL != nil, "The article should have an image.")
             XCTAssert(information?.faviconURL != nil, "The link should have a favicon.")
             XCTAssert(information?.appleTouchIconURL != nil, "The link should have a apple touch icon.")
@@ -64,8 +64,8 @@ class InformationFetchingTests: XCTestCase {
             XCTAssertNotNil(information, "Information is missing")
             
             XCTAssert(information?.type == .website, "The link should be of type website.")
-            XCTAssert(information?.title?.characters.count ?? 0 > 0, "The article should have a title of at least 1 character.")
-            XCTAssert(information?.descriptionText?.characters.count ?? 0 > 0, "The article should have a description of at least 1 character.")
+            XCTAssert(information?.title?.count ?? 0 > 0, "The article should have a title of at least 1 character.")
+            XCTAssert(information?.descriptionText?.count ?? 0 > 0, "The article should have a description of at least 1 character.")
             XCTAssert(information?.imageURL == nil, "The link shouldn't have an image.")
             XCTAssert(information?.faviconURL != nil, "The link should have a favicon.")
             XCTAssert(information?.appleTouchIconURL != nil, "The link should have a apple touch icon.")

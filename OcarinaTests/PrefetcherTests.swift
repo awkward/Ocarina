@@ -12,7 +12,7 @@ import XCTest
 class PrefetcherTests: XCTestCase {
 
     func testPrefetcher() {
-        let urls = ["http://youtube.com", "http://reddit.com", "http://apple.com", "http://twitter.com", "http://awkward.co"].flatMap { (string) -> URL? in
+        let urls = ["http://youtube.com", "http://reddit.com", "http://apple.com", "http://twitter.com", "http://awkward.co"].compactMap { (string) -> URL? in
             return URL(string: string)
         }
         
@@ -20,7 +20,7 @@ class PrefetcherTests: XCTestCase {
         _ = OcarinaPrefetcher(urls: urls, manager: nil) { (errors) in
             XCTAssert(errors.count == 0, "There shouldn't be any errors pre-fetching the URls")
             
-            if OcarinaManager.shared.cache[urls.first!]?.title?.characters.count ?? 0 > 0 {
+            if OcarinaManager.shared.cache[urls.first!]?.title?.count ?? 0 > 0 {
                 expectation.fulfill()
             } else {
                 XCTFail("Information is missing from the cache after pre-fetching")
@@ -35,7 +35,7 @@ class PrefetcherTests: XCTestCase {
     }
     
     func testPrefetcherCancel() {
-        let urls = ["http://youtube.com", "http://reddit.com/r/nintendo", "http://apple.com", "http://twitter.com", "http://awkward.co"].flatMap { (string) -> URL? in
+        let urls = ["http://youtube.com", "http://reddit.com/r/nintendo", "http://apple.com", "http://twitter.com", "http://awkward.co"].compactMap { (string) -> URL? in
             return URL(string: string)
         }
         
@@ -44,7 +44,7 @@ class PrefetcherTests: XCTestCase {
     }
     
     func testPrefetcherWithError() {
-        let urls = ["http://youtube.com","http://reddit.table.chair", "http://reddit.com", "http://apple.com", "http://twitter.com", "http://awkward.co"].flatMap { (string) -> URL? in
+        let urls = ["http://youtube.com","http://reddit.table.chair", "http://reddit.com", "http://apple.com", "http://twitter.com", "http://awkward.co"].compactMap { (string) -> URL? in
             return URL(string: string)
         }
         
