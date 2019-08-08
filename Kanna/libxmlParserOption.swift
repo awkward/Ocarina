@@ -24,7 +24,7 @@ SOFTWARE.
 */
 import Foundation
 
-import SwiftLibXML2
+import libxmlKanna
 
 /*
 Libxml2HTMLParserOptions

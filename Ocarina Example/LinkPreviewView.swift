@@ -14,14 +14,14 @@ class LinkPreviewView: UIControl {
     
     fileprivate var previewImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = UIViewContentMode.scaleAspectFill
+        imageView.contentMode = .scaleAspectFill
         imageView.isOpaque = true
         imageView.clipsToBounds = true
         return imageView
     }()
     fileprivate var loadingPlaceholderImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = UIViewContentMode.scaleToFill
+        imageView.contentMode = .scaleToFill
         imageView.isOpaque = true
         imageView.clipsToBounds = true
         //imageView.image = #imageLiteral(resourceName: "empty_link_placeholder")
@@ -65,17 +65,17 @@ class LinkPreviewView: UIControl {
     fileprivate var imageTask: URLSessionTask?
     
     //Generating the UIFont everytime displayModeDidChange is called seems to cause some CPU time so that's why I'm saving it.
-    fileprivate static let titleFont = UIFont.systemFont(ofSize: 12, weight: UIFontWeightMedium)
+    fileprivate static let titleFont = UIFont.systemFont(ofSize: 12, weight: .medium)
     fileprivate static let subtitleFont = UIFont.systemFont(ofSize: 12)
     
     fileprivate var attributedTitle: NSAttributedString? {
-        let titleAttributes = [NSFontAttributeName: LinkPreviewView.titleFont, NSForegroundColorAttributeName:  UIColor.black]
-        let descriptionAttributes = [NSFontAttributeName: LinkPreviewView.subtitleFont, NSForegroundColorAttributeName: UIColor(red:0.58, green:0.58, blue:0.58, alpha:1)]
+        let titleAttributes: [NSAttributedString.Key: Any] = [.font: LinkPreviewView.titleFont, .foregroundColor:  UIColor.black]
+        let descriptionAttributes: [NSAttributedString.Key: Any] = [.font: LinkPreviewView.subtitleFont, .foregroundColor: UIColor(red:0.58, green:0.58, blue:0.58, alpha:1)]
         
         let string = NSMutableAttributedString()
         if let information = self.information {
-            let hasTitle = information.title?.characters.count ?? 0 > 0
-            let hasDescription = information.descriptionText?.characters.count ?? 0 > 0
+            let hasTitle = information.title?.count ?? 0 > 0
+            let hasDescription = information.descriptionText?.count ?? 0 > 0
             
             if hasTitle, let title = information.title {
                 string.append(NSAttributedString(string: title, attributes: titleAttributes))
@@ -311,10 +311,11 @@ class LinkPreviewView: UIControl {
         
         insets.left = xPosition
         
-        let descriptionRect = UIEdgeInsetsInsetRect(self.bounds, insets)
+        let descriptionRect = self.bounds.inset(by: insets)
         var maxSize = descriptionRect.size
         
-        var placeholderFrame = UIEdgeInsetsInsetRect(self.bounds, self.viewInsetsLink)
+        
+        var placeholderFrame = self.bounds.inset(by: self.viewInsetsLink)
         placeholderFrame.size.height = self.loadingPlaceholderImageView.image?.size.height ?? 0
         self.loadingPlaceholderImageView.frame = placeholderFrame
         
@@ -351,7 +352,7 @@ class LinkPreviewView: UIControl {
     //MARK: - Size
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIViewNoIntrinsicMetric, height: 78)
+        return CGSize(width: UIView.noIntrinsicMetric, height: 78)
     }
     
     class func height(for link: URL?, inWidth width: CGFloat, isVideoPreview: Bool) -> CGFloat {

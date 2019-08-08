@@ -36,6 +36,7 @@
 		0C99F9401E927726000C5258 /* InformationFetchingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C99F93F1E927726000C5258 /* InformationFetchingTests.swift */; };
 		0C99F9421E927C46000C5258 /* CachingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C99F9411E927C46000C5258 /* CachingTests.swift */; };
 		0C99F9451E92894F000C5258 /* PrefetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C99F9441E92894F000C5258 /* PrefetcherTests.swift */; };
+		0CEF7EB022E8592A00885CAC /* Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEF7EAF22E8592A00885CAC /* Deprecated.swift */; };
 		0CF4451E1E63006A00E284FB /* OcarinaManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF4451D1E63006A00E284FB /* OcarinaManagerDelegate.swift */; };
 		0CF445201E6300F400E284FB /* OcarinaPrefetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF4451F1E6300F400E284FB /* OcarinaPrefetcher.swift */; };
 /* End PBXBuildFile section */
@@ -111,6 +112,7 @@
 		0C99F93F1E927726000C5258 /* InformationFetchingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationFetchingTests.swift; sourceTree = "<group>"; };
 		0C99F9411E927C46000C5258 /* CachingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachingTests.swift; sourceTree = "<group>"; };
 		0C99F9441E92894F000C5258 /* PrefetcherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefetcherTests.swift; sourceTree = "<group>"; };
+		0CEF7EAF22E8592A00885CAC /* Deprecated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deprecated.swift; sourceTree = "<group>"; };
 		0CF4451D1E63006A00E284FB /* OcarinaManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OcarinaManagerDelegate.swift; sourceTree = "<group>"; };
 		0CF4451F1E6300F400E284FB /* OcarinaPrefetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OcarinaPrefetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				0C99F93D1E92725F000C5258 /* CSS.swift */,
+				0CEF7EAF22E8592A00885CAC /* Deprecated.swift */,
 				0C38D4D91E8E53BE003E02E1 /* Kanna.swift */,
 				0C38D4DA1E8E53BE003E02E1 /* libxmlHTMLDocument.swift */,
 				0C38D4DB1E8E53BE003E02E1 /* libxmlHTMLNode.swift */,
@@ -317,7 +320,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = awkward;
 				TargetAttributes = {
 					0C879D9F1E535182004606F2 = {
@@ -337,7 +340,7 @@
 			};
 			buildConfigurationList = 0C879D9B1E535182004606F2 /* Build configuration list for PBXProject "Ocarina" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -411,6 +414,7 @@
 				0C38D4E01E8E53BE003E02E1 /* libxmlHTMLNode.swift in Sources */,
 				0C1AEEDD1E54A09A001A6234 /* URLInformation.swift in Sources */,
 				0C38D4DE1E8E53BE003E02E1 /* Kanna.swift in Sources */,
+				0CEF7EB022E8592A00885CAC /* Deprecated.swift in Sources */,
 				0C1AEEDB1E54A090001A6234 /* OcarinaManager.swift in Sources */,
 				0CF445201E6300F400E284FB /* OcarinaPrefetcher.swift in Sources */,
 			);
@@ -471,6 +475,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -480,6 +485,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -487,6 +493,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -526,6 +533,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -535,6 +543,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -542,6 +551,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -582,7 +592,7 @@
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = "co.awkward.Ocarina-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -598,7 +608,7 @@
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = "co.awkward.Ocarina-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -624,7 +634,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/SwiftLibXML2";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -652,7 +662,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/SwiftLibXML2";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

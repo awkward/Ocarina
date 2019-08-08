@@ -23,7 +23,7 @@ open class OcarinaPrefetcher: NSObject {
         self.completionHandler = completionHandler
         super.init()
         
-        let requests = urls.flatMap { (url) -> OcarinaInformationRequest? in
+        let requests = urls.compactMap { (url) -> OcarinaInformationRequest? in
             return self.manager.requestInformation(for: url, completionHandler: { (information, error) in
                 self.requestCompleted(error: error)
             })

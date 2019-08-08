@@ -31,7 +31,7 @@ class RealLinksTableViewController: UITableViewController {
         self.downloadLinks()
         
         self.tableView.estimatedRowHeight = 78+16
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.rowHeight = UITableView.automaticDimension
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -52,7 +52,7 @@ class RealLinksTableViewController: UITableViewController {
                         print("Invalid reddit json")
                         return
                     }
-                    let links = children.flatMap({ (post) -> URL? in
+                    let links = children.compactMap({ (post) -> URL? in
                         guard let data = post["data"] as? [String: Any] else {
                             return nil
                         }

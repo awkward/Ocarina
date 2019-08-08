@@ -9,25 +9,25 @@
 import Foundation
 
 /// Manages the requests of informations for each URL and makes sure the information is cached.
-open class OcarinaManager: NSObject {
+public class OcarinaManager: NSObject {
     
     /// A shared instance of the OcarinaManager on which methods can be called to fetch information about a URL
-    open static let shared: OcarinaManager = OcarinaManager()
+    static public let shared: OcarinaManager = OcarinaManager()
     
     /// The cache used for caching URLInformation models
-    open let cache: URLInformationCache
+    public let cache: URLInformationCache
     
     /// The requests that are currently in progress
-    open var currentRequests: [OcarinaInformationRequest] = [OcarinaInformationRequest]();
+    public var currentRequests: [OcarinaInformationRequest] = [OcarinaInformationRequest]();
     
     /// The delegate for the Ocarina Manager. See OcarinaManagerDelegate
-    open var delegate: OcarinaManagerDelegate?
+    public var delegate: OcarinaManagerDelegate?
     
     /// The received data per task identifier.
     fileprivate var dataPerTask = [Int: Data]()
     
     /// If the OcarinaManager should cache the URLInformation models
-    open var shouldCacheResults = true {
+    public var shouldCacheResults = true {
         didSet {
             if !self.shouldCacheResults {
                 self.cache.clear()
@@ -36,7 +36,7 @@ open class OcarinaManager: NSObject {
     }
     
     /// The barrier queue used when accessing dataPerTask.
-    let barrierQueue = DispatchQueue(label: "ocarina-barrier-handling-queue")
+    private let barrierQueue = DispatchQueue(label: "ocarina-barrier-handling-queue")
     
     /// The current session configuration. Can be used to register custom protocols on.
     public var sessionConfiguration = URLSessionConfiguration.default
@@ -60,7 +60,7 @@ open class OcarinaManager: NSObject {
     ///   - completionHandler: A handler called, when the information about the link is found
     /// - Returns: The scheduled request for information about the URL. If nil is returned, the request is either invalid or information is already available and the completionsHandler is directly called
     @discardableResult
-    open func requestInformation(for url: URL, completionHandler: @escaping InformationCompletionHandler) -> OcarinaInformationRequest? {
+    public func requestInformation(for url: URL, completionHandler: @escaping InformationCompletionHandler) -> OcarinaInformationRequest? {
         if self.shouldCacheResults, let result = self.cache[url] {
             DispatchQueue.main.async {
                 completionHandler(result, nil)
@@ -99,7 +99,7 @@ open class OcarinaManager: NSObject {
     ///
     /// - Parameter url: The url to get the requests for
     /// - Returns: The requests
-    open func requests(for url: URL) -> [OcarinaInformationRequest] {
+    public func requests(for url: URL) -> [OcarinaInformationRequest] {
         return self.currentRequests.filter({ (request) -> Bool in
             return request.url == url
         })
@@ -109,7 +109,7 @@ open class OcarinaManager: NSObject {
     ///
     /// - Parameter url: The url to get the requests for
     /// - Returns: The requests
-    fileprivate func requests(for task: URLSessionTask) -> [OcarinaInformationRequest] {
+    private func requests(for task: URLSessionTask) -> [OcarinaInformationRequest] {
         return self.currentRequests.filter({ (request) -> Bool in
             return request.task == task
         })
@@ -118,10 +118,10 @@ open class OcarinaManager: NSObject {
     /// Cancels a given request. If all requests for the same URL are cancelled, the actual data retrieving is also cancelled
     ///
     /// - Parameter request: The request to cancel. Also see `func cancel()` on OcarinaInformationRequest
-    open func cancel(request: OcarinaInformationRequest) {
+    public func cancel(request: OcarinaInformationRequest) {
         let requests = self.requests(for: request.url)
         
-        if let index = self.currentRequests.index(of: request) {
+        if let index = self.currentRequests.firstIndex(of: request) {
             request.completionHandler(nil, nil)
             self.currentRequests.remove(at: index)
             if requests.count == 1 {
@@ -130,7 +130,7 @@ open class OcarinaManager: NSObject {
         }
     }
     
-    fileprivate func information(for url: URL, originalURL: URL, html: HTMLDocument?, response: HTTPURLResponse?) -> URLInformation? {
+    private func information(for url: URL, originalURL: URL, html: HTMLDocument?, response: HTTPURLResponse?) -> URLInformation? {
         var urlInformation = URLInformation(originalURL: originalURL, url: url, html: html, response: response)
         if let delegate = self.delegate, let information = urlInformation {
             urlInformation = delegate.ocarinaManager(manager: self, doAdditionalParsingForInformation: information, html: nil)
@@ -139,7 +139,7 @@ open class OcarinaManager: NSObject {
     }
     
     
-    fileprivate func completeRequestsWithError(_ error: Error, for url: URL) {
+    private func completeRequestsWithError(_ error: Error, for url: URL) {
         DispatchQueue.main.async {
             let requests = self.requests(for: url)
             for request in requests {
@@ -150,7 +150,7 @@ open class OcarinaManager: NSObject {
         }
     }
     
-    fileprivate func completeRequestsWithInformation(_ information: URLInformation, for url: URL) {
+    private func completeRequestsWithInformation(_ information: URLInformation, for url: URL) {
         DispatchQueue.main.async {
             let requests = self.requests(for: url)
             for request in requests {
@@ -162,9 +162,9 @@ open class OcarinaManager: NSObject {
         }
     }
     
-    fileprivate func remove(requests: [OcarinaInformationRequest]) {
+    private func remove(requests: [OcarinaInformationRequest]) {
         for request in requests {
-            if let index = self.currentRequests.index(of: request) {
+            if let index = self.currentRequests.firstIndex(of: request) {
                 self.currentRequests.remove(at: index)
             }
         }
@@ -187,9 +187,7 @@ extension OcarinaManager: URLSessionDataDelegate {
         completionHandler(URLSession.ResponseDisposition.allow)
     }
     
-    // Note: Using optional `Data` to fix a crash: https://github.com/Alamofire/Alamofire/issues/2138
-    public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data?) {
-        guard let data = data else { return }
+    public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
         self.barrierQueue.sync {
             if var existingData = self.dataPerTask[dataTask.taskIdentifier] {
                 existingData.append(data)
@@ -229,7 +227,7 @@ extension OcarinaManager: URLSessionDataDelegate {
         
         var html: HTMLDocument? = nil
         if let data = data {
-            html = HTML(html: data, encoding: .utf8)
+            html = try? HTML(html: data, encoding: .utf8)
         }
         
         if let urlInformation = self.information(for: url, originalURL: originalURL, html: html, response: response) {

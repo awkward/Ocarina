@@ -34,7 +34,7 @@ public extension Ocarina {
     /// - Parameter completionHandler: Called when the data is retreived or the request has been cancelled
     /// - Returns: The request that is sheduled to be performed. Or nil if the request is invalid or already has cached data
     @discardableResult
-    public func fetchInformation(completionHandler: @escaping InformationCompletionHandler) -> OcarinaInformationRequest? {
+    func fetchInformation(completionHandler: @escaping InformationCompletionHandler) -> OcarinaInformationRequest? {
         return OcarinaManager.shared.requestInformation(for: self.url, completionHandler: completionHandler)
     }
     
