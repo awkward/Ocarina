@@ -224,6 +224,8 @@ public class URLInformation: NSCoding, Equatable {
             
             if let appleTouchIconURLString = html.xpath("/html/head/link[@rel=\"apple-touch-icon\" and not(@sizes)]/@href").first?.text {
                 self.appleTouchIconURL = URL(string: appleTouchIconURLString, relativeTo: url)
+            } else if let appleTouchIconURLString = html.xpath("/html/head/link[@rel=\"apple-touch-icon\" and @sizes=\"180x180\"]/@href").first?.text {
+                self.appleTouchIconURL = URL(string: appleTouchIconURLString, relativeTo: url)
             } else if let appleTouchIconURLString = html.xpath("/html/head/link[@rel=\"apple-touch-icon-precomposed\" and not(@sizes)]/@href").first?.text {
                 self.appleTouchIconURL = URL(string: appleTouchIconURLString, relativeTo: url)
             }
