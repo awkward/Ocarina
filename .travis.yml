@@ -1,5 +1,5 @@
 language: swift
-osx_image: xcode10.3
-xcode_sdk: iphonesimulator12.4
+osx_image: xcode10.2
+xcode_sdk: iphonesimulator12.2
 script:
-- xcodebuild clean build test -project Ocarina.xcodeproj -scheme Ocarina -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.4'
+- xcodebuild clean build test -project Ocarina.xcodeproj -scheme Ocarina -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.2'
