@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Kanna
 
 public enum URLInformationType: String {
     

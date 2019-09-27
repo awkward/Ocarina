@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Kanna
 @testable import Ocarina
 
 /// This test checks if addtional parsing using the delegate works.

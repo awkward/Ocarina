@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Kanna
 
 /// Manages the requests of informations for each URL and makes sure the information is cached.
 public class OcarinaManager: NSObject {

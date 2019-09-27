@@ -8,6 +8,7 @@
 
 import Foundation
 import AVFoundation
+import Kanna
 
 public enum TwitterCardType: String {
     case summary = "summary"

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Kanna
 
 public protocol OcarinaManagerDelegate: class {
     
