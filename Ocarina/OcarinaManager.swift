@@ -214,9 +214,9 @@ extension OcarinaManager: URLSessionDataDelegate {
             return
         }
         let url = task.currentRequest?.url ?? originalURL
-        if let response = response, response.statusCode < 200 && response.statusCode >= 300 {
+        if let response = response, response.statusCode < 200 || response.statusCode >= 300 {
             //We don't have a valid response, we end it here! If we don't have a response at all, we will just continue
-            let newError = NSError(domain: "co.awkward.ocarina", code: 500, userInfo: [NSLocalizedDescriptionKey: "Invalid response receibved from URL"])
+            let newError = NSError(domain: "co.awkward.ocarina", code: 500, userInfo: [NSLocalizedDescriptionKey: "Invalid response received from URL", "HTTPURLResponse": response])
             self.completeRequestsWithError(newError, for: originalURL)
             return
         }
