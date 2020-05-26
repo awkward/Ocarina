@@ -136,7 +136,7 @@ public class URLInformation: NSCoding, Equatable {
     
     /// The contents of the og:url tag of the link.
     /// If the Open Graph URL is not present, this will match the original or have the redirect URL if a redirect occured.
-    public let url: URL
+    public var url: URL
     
     /// The contents of the og:title tag of the link.
     /// If og:title is not present, there is a fallback to the `<title>` html tag.
@@ -199,6 +199,10 @@ public class URLInformation: NSCoding, Equatable {
                 self.descriptionText = descriptionText
             } else if let descriptionText = html.xpath("/html/head/meta[(@property|@name)=\"description\"]/@content").first?.text {
                 self.descriptionText = descriptionText
+            }
+            
+            if let urlString = html.xpath("/html/head/meta[(@property|@name)=\"og:url\"]/@content").first?.text {
+                self.url = URL(string: urlString)!
             }
             
             if let imageURLString = html.xpath("/html/head/meta[(@property|@name)=\"og:image\"]/@content").first?.text {
