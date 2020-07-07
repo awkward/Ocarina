@@ -205,7 +205,7 @@ public class URLInformation: NSCoding, Equatable {
                 self.url = URL(string: urlString)!
             }
             
-            if let imageURLString =  html.xpath("//meta[(@property|@name)=\"og:image\"]/@content").first?.text {
+            if let imageURLString = html.xpath("//meta[(@property|@name)=\"og:image\"]/@content").first?.text {
                 self.imageURL = URL(string: imageURLString, relativeTo: url)
             } else if let imageURLString = html.xpath("//meta[(@property|@name)=\"thumbnail\"]/@content").first?.text {
                 self.imageURL = URL(string: imageURLString, relativeTo: url)
