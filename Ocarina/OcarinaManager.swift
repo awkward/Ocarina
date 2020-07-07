@@ -173,6 +173,14 @@ public class OcarinaManager: NSObject {
 
 extension OcarinaManager: URLSessionDataDelegate {
     
+    public func urlSession(_ session: URLSession,
+                        task: URLSessionTask,
+    willPerformHTTPRedirection response: HTTPURLResponse,
+                  newRequest request: URLRequest,
+                  completionHandler: @escaping (URLRequest?) -> Void) {
+        completionHandler(request)
+    }
+    
     public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
         if let httpResponse = response as? HTTPURLResponse, let mimeType = response.mimeType?.lowercased() {
             if URLInformationType.htmlFileMimeTypes.contains(mimeType) {
