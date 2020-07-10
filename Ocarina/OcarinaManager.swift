@@ -93,12 +93,8 @@ public class OcarinaManager: NSObject {
         var request = URLRequest(url: url)
         request.cachePolicy = .reloadIgnoringLocalCacheData
         
-    let userAgent = self.userAgent ?? "Ocarinabot"
-    request.setValue(userAgent, forHTTPHeaderField: "User-agent")
-            request.setValue(self.userAgent, forHTTPHeaderField: "User-agent")
-        } else {
-            request.setValue("Ocarinabot", forHTTPHeaderField: "User-agent")
-        }
+        let userAgent = self.userAgent ?? "Ocarinabot"
+        request.setValue(userAgent, forHTTPHeaderField: "User-agent")
         
         request.setValue("text/html", forHTTPHeaderField: "Accept")
         return self.urlSession.dataTask(with: request)
@@ -183,10 +179,7 @@ public class OcarinaManager: NSObject {
 extension OcarinaManager: URLSessionDataDelegate {
     
     public func urlSession(_ session: URLSession,
-                        task: URLSessionTask,
-    willPerformHTTPRedirection response: HTTPURLResponse,
-                  newRequest request: URLRequest,
-                  completionHandler: @escaping (URLRequest?) -> Void) {
+ task: URLSessionTask, willPerformHTTPRedirection response: HTTPURLResponse, newRequest request: URLRequest, completionHandler: @escaping (URLRequest?) -> Void) {
         completionHandler(request)
     }
     
