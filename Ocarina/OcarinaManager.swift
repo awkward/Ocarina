@@ -35,7 +35,7 @@ public class OcarinaManager: NSObject {
         }
     }
     
-    public var userAgent = ""
+    public var userAgent: String?
     
     /// The barrier queue used when accessing dataPerTask.
     private let barrierQueue = DispatchQueue(label: "ocarina-barrier-handling-queue")
