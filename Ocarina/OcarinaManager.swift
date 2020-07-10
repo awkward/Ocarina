@@ -35,6 +35,7 @@ public class OcarinaManager: NSObject {
         }
     }
     
+    /// The user agent that is reported with the request to the URL when fetching the information.
     public var userAgent: String?
     
     /// The barrier queue used when accessing dataPerTask.
