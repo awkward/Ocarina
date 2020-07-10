@@ -93,7 +93,8 @@ public class OcarinaManager: NSObject {
         var request = URLRequest(url: url)
         request.cachePolicy = .reloadIgnoringLocalCacheData
         
-        if (!self.userAgent.isEmpty) {
+    let userAgent = self.userAgent ?? "Ocarinabot"
+    request.setValue(userAgent, forHTTPHeaderField: "User-agent")
             request.setValue(self.userAgent, forHTTPHeaderField: "User-agent")
         } else {
             request.setValue("Ocarinabot", forHTTPHeaderField: "User-agent")
