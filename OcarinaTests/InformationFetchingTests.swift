@@ -19,6 +19,7 @@ class InformationFetchingTests: XCTestCase {
     override func tearDown() {
         super.tearDown()
         
+       OcarinaManager.shared.userAgent = nil
         OcarinaManager.shared.cache.clear()
     }
     
@@ -57,6 +58,9 @@ class InformationFetchingTests: XCTestCase {
             XCTFail("Invalid URL")
             return
         }
+        
+        // Reddit doesn't accept a user agent with "bot" in the name, if it gets one it doesn't include "og:" elements.
+        OcarinaManager.shared.userAgent = "xctest"
         
         let expectation = self.expectation(description: "This link should have basic information but, not from OGP")
         url.oca.fetchInformation { (information, error) in

@@ -36,6 +36,9 @@ public class OcarinaManager: NSObject {
         }
     }
     
+    /// The user agent that is reported with the request to the URL when fetching the information.
+    public var userAgent: String?
+    
     /// The barrier queue used when accessing dataPerTask.
     private let barrierQueue = DispatchQueue(label: "ocarina-barrier-handling-queue")
     
@@ -91,7 +94,10 @@ public class OcarinaManager: NSObject {
     fileprivate func dataTask(for url: URL) -> URLSessionDataTask {
         var request = URLRequest(url: url)
         request.cachePolicy = .reloadIgnoringLocalCacheData
-        request.setValue("Ocarinabot", forHTTPHeaderField: "User-agent")
+        
+        let userAgent = self.userAgent ?? "Ocarinabot/\(Int(OcarinaVersionNumber))"
+        request.setValue(userAgent, forHTTPHeaderField: "User-agent")
+        
         request.setValue("text/html", forHTTPHeaderField: "Accept")
         return self.urlSession.dataTask(with: request)
     }
@@ -173,6 +179,11 @@ public class OcarinaManager: NSObject {
 }
 
 extension OcarinaManager: URLSessionDataDelegate {
+    
+    public func urlSession(_ session: URLSession,
+ task: URLSessionTask, willPerformHTTPRedirection response: HTTPURLResponse, newRequest request: URLRequest, completionHandler: @escaping (URLRequest?) -> Void) {
+        completionHandler(request)
+    }
     
     public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
         if let httpResponse = response as? HTTPURLResponse, let mimeType = response.mimeType?.lowercased() {

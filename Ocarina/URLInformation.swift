@@ -184,25 +184,25 @@ public class URLInformation: NSCoding, Equatable {
         self.url = url
         if let html = html {
             
-            if let typeString = html.xpath("/html/head/meta[(@property|@name)=\"og:type\"]/@content").first?.text, let type = URLInformationType.type(for: typeString) {
+            if let typeString = html.xpath("//meta[(@property|@name)=\"og:type\"]/@content").first?.text, let type = URLInformationType.type(for: typeString) {
                 self.type = type
             } else {
                 self.type = .website
             }
             
-            if let title = html.xpath("/html/head/meta[(@property|@name)=\"og:title\"]/@content").first?.text {
+            if let title = html.xpath("//meta[(@property|@name)=\"og:title\"]/@content").first?.text {
                 self.title = title
             } else if let title = html.title {
                 self.title = title
             }
             
-            if let descriptionText = html.xpath("/html/head/meta[(@property|@name)=\"og:description\"]/@content").first?.text {
+            if let descriptionText = html.xpath("//meta[@property=\"og:description\"]/@content ").first?.text {
                 self.descriptionText = descriptionText
-            } else if let descriptionText = html.xpath("/html/head/meta[(@property|@name)=\"description\"]/@content").first?.text {
+            } else if let descriptionText = html.xpath("//meta[(@property|@name)=\"description\"]/@content").first?.text {
                 self.descriptionText = descriptionText
             }
-            
-            if var urlString = html.xpath("/html/head/meta[(@property|@name)=\"og:url\"]/@content").first?.text {
+
+            if var urlString = html.xpath("//meta[(@property|@name)=\"og:url\"]/@content").first?.text {
                 urlString = urlString.trimmingCharacters(in: .whitespaces)
 
                 if let url = URL(string: urlString) {
@@ -210,14 +210,14 @@ public class URLInformation: NSCoding, Equatable {
                 }
             }
             
-            if let imageURLString = html.xpath("/html/head/meta[(@property|@name)=\"og:image\"]/@content").first?.text {
+            if let imageURLString = html.xpath("//meta[(@property|@name)=\"og:image\"]/@content").first?.text {
                 self.imageURL = URL(string: imageURLString, relativeTo: url)
-            } else if let imageURLString = html.xpath("/html/head/meta[(@property|@name)=\"thumbnail\"]/@content").first?.text {
+            } else if let imageURLString = html.xpath("//meta[(@property|@name)=\"thumbnail\"]/@content").first?.text {
                 self.imageURL = URL(string: imageURLString, relativeTo: url)
             }
             
-            if let imageWidthString = html.xpath("/html/head/meta[(@property|@name)=\"og:image:width\"]/@content").first?.text,
-                let imageHeightString = html.xpath("/html/head/meta[(@property|@name)=\"og:image:height\"]/@content").first?.text {
+            if let imageWidthString = html.xpath("//meta[(@property|@name)=\"og:image:width\"]/@content").first?.text,
+                let imageHeightString = html.xpath("//meta[(@property|@name)=\"og:image:height\"]/@content").first?.text {
                 let imageWidth: CGFloat = CGFloat(Float(imageWidthString) ?? 0)
                 let imageHeight: CGFloat = CGFloat(Float(imageHeightString) ?? 0)
                 if imageWidth > 0 && imageHeight > 0 {
