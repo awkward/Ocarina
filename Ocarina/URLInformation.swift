@@ -201,8 +201,9 @@ public class URLInformation: NSCoding, Equatable {
                 self.descriptionText = descriptionText
             }
             
-            if let urlString = html.xpath("//meta[(@property|@name)=\"og:url\"]/@content").first?.text {
-                self.url = URL(string: urlString)!
+            if let urlString = html.xpath("//meta[(@property|@name)=\"og:url\"]/@content").first?.text,
+               let url = URL(string: urlString) {
+                self.url = url
             }
             
             if let imageURLString = html.xpath("//meta[(@property|@name)=\"og:image\"]/@content").first?.text {
