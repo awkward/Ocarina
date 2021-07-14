@@ -32,10 +32,10 @@ Hi, we're [Awkward](https://awkward.co/). We were looking for a way to visualize
 
 1. Drag Ocarina.xcodeproj into your project
 2. Go to your project
-3. Select Build Phases
-4. Under Embed frameworks, press + and select Ocarina.framework
+3. Select General
+4. Under "Frameworks, Libraries, and Embedded Content" press + and select Ocarina.framework
 5. Select Build Settings
-6. Search for `Other Linker Flags` and add `-lxml2`
+6. Search for `Other Linker Flags` and add `-lxml2` (Make sure you click "All" at the top instead of "Basic" to see `Other Linker Flags`)
 
 ### Usage
 
@@ -43,7 +43,7 @@ Hi, we're [Awkward](https://awkward.co/). We were looking for a way to visualize
 
 ```Swift
 let url = URL(string: "https://awkward.co")!
-link.oca.fetchInformation(completionHandler: { (information, error) in
+url.oca.fetchInformation(completionHandler: { (information, error) in
   if let information = information {
     print(String(describing: information.title))
   } else if let error = error {
